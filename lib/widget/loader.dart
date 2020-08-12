@@ -8,7 +8,8 @@ class Loader extends StatefulWidget {
 
   const Loader({Key key, this.width, this.height}) : super(key: key);
 
-  createState() => _LoaderState();
+  @override
+  State createState() => _LoaderState();
 }
 
 class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
@@ -17,7 +18,7 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
   Animation<double> _opacity;
 
   @override
-  initState() {
+  void initState() {
     super.initState();
 
     _controller = AnimationController(

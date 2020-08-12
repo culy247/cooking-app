@@ -18,7 +18,16 @@ double getScreenHeight(BuildContext context) {
 }
 
 void hideKeyboard(BuildContext context) {
-  FocusScope.of(context).requestFocus(new FocusNode());
+  FocusScope.of(context).requestFocus(FocusNode());
+}
+
+void test() {
+  final a = 5;
+  if (a > 0) {
+    print('test');
+  } else {
+
+  }
 }
 
 //Future navigateTo(BuildContext context, String path,

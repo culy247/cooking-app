@@ -1,0 +1,8 @@
+# After setting up the linter rules, run the command 'flutter analyze' to analyze and check your code.
+
+include:
+  package:pedantic/analysis_options.yaml
+#  package:effective_dart/analysis_options.yaml
+
+analyzer:
+  exclude: [build/**, lib/generated/**]

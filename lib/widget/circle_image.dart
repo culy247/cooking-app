@@ -25,13 +25,13 @@ class CircleProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double defaultSize = getScreenWidth(context) * 0.35;
+    var defaultSize = getScreenWidth(context) * 0.35;
 
-    return this.imageUrl != null
+    return imageUrl != null
         ? Container(
             width: width ?? defaultSize,
             height: height ?? defaultSize,
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
@@ -54,16 +54,16 @@ class CircleProfileImage extends StatelessWidget {
         : Container(
             width: width ?? defaultSize,
             height: height ?? defaultSize,
-            decoration: new BoxDecoration(shape: BoxShape.circle),
+            decoration: BoxDecoration(shape: BoxShape.circle),
             child: Image.asset(Images.icAdd),
           );
   }
 
-  _buildLoadImageError(BuildContext context, double defaultSize) {
+  Widget _buildLoadImageError(BuildContext context, double defaultSize) {
     return Container(
       width: width ?? defaultSize,
       height: height ?? defaultSize,
-      decoration: new BoxDecoration(shape: BoxShape.circle),
+      decoration: BoxDecoration(shape: BoxShape.circle),
       child: Image.asset(
         Images.icAdd,
         fit: BoxFit.cover,

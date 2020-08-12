@@ -35,11 +35,11 @@ class _AppState extends State<App> {
           localeResolutionCallback:
               (Locale locale, Iterable<Locale> supportedLocales) {
             if (locale == null) {
-              debugPrint("*language locale is null!!!");
+              debugPrint('*language locale is null!!!');
               return supportedLocales.first;
             }
 
-            for (Locale supportedLocale in supportedLocales) {
+            for (var supportedLocale in supportedLocales) {
               if (locale != null) {
                 if (supportedLocale.languageCode == locale.languageCode ||
                     supportedLocale.countryCode == locale.countryCode) {
