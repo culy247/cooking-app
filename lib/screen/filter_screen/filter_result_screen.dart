@@ -4,7 +4,6 @@ import 'package:cooking/screen/detail_screen/detail_screen.dart';
 import 'package:cooking/store/recipe/recipe_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/images.dart';
-import 'package:cooking/utils/logger.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
 import 'package:cooking/widget/custom_button/back_button.dart';
