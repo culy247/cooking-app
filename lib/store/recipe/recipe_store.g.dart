@@ -69,6 +69,21 @@ mixin _$RecipeStore on _RecipeStore, Store {
     });
   }
 
+  final _$filteredRecipesAtom = Atom(name: '_RecipeStore.filteredRecipes');
+
+  @override
+  ObservableList<RecipeModel> get filteredRecipes {
+    _$filteredRecipesAtom.reportRead();
+    return super.filteredRecipes;
+  }
+
+  @override
+  set filteredRecipes(ObservableList<RecipeModel> value) {
+    _$filteredRecipesAtom.reportWrite(value, super.filteredRecipes, () {
+      super.filteredRecipes = value;
+    });
+  }
+
   final _$getRecipesAsyncAction = AsyncAction('_RecipeStore.getRecipes');
 
   @override
@@ -111,13 +126,23 @@ mixin _$RecipeStore on _RecipeStore, Store {
         .run(() => super.addRecipeToFavorite(recipeId, isFavorite: isFavorite));
   }
 
+  final _$getRecipesByCategoryAsyncAction =
+      AsyncAction('_RecipeStore.getRecipesByCategory');
+
+  @override
+  Future<void> getRecipesByCategory(int categoryId) {
+    return _$getRecipesByCategoryAsyncAction
+        .run(() => super.getRecipesByCategory(categoryId));
+  }
+
   @override
   String toString() {
     return '''
 isLoading: ${isLoading},
 recipeList: ${recipeList},
 favoriteRecipes: ${favoriteRecipes},
-searchedRecipes: ${searchedRecipes}
+searchedRecipes: ${searchedRecipes},
+filteredRecipes: ${filteredRecipes}
     ''';
   }
 }

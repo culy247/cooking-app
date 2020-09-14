@@ -87,7 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "textFilterScreenSelect" : MessageLookupByLibrary.simpleMessage("Select categories to filter"),
     "time" : MessageLookupByLibrary.simpleMessage("Time"),
     "tryAgain" : MessageLookupByLibrary.simpleMessage("Try Again"),
-    "unSelectAll" : MessageLookupByLibrary.simpleMessage("Un select all"),
+    "unSelectAll" : MessageLookupByLibrary.simpleMessage("Unselect all"),
     "unit" : MessageLookupByLibrary.simpleMessage("Unit"),
     "vi" : MessageLookupByLibrary.simpleMessage("Vietnamese"),
     "yes" : MessageLookupByLibrary.simpleMessage("YES")

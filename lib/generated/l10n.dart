@@ -513,10 +513,10 @@ class S {
     );
   }
 
-  /// `Un select all`
+  /// `Unselect all`
   String get unSelectAll {
     return Intl.message(
-      'Un select all',
+      'Unselect all',
       name: 'unSelectAll',
       desc: '',
       args: [],

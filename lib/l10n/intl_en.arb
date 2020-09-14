@@ -47,7 +47,7 @@
   "language": "Language",
   "logOut": "Log out",
   "selectAll": "Select All",
-  "unSelectAll": "Un select all",
+  "unSelectAll": "Unselect all",
   "exportToJson": "Export to JSON",
   "ok": "OK",
   "noDialog": "No",

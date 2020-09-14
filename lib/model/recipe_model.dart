@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:cooking/constants/constants.dart';
 import 'package:cooking/db/db.dart';
+import 'package:mobx/mobx.dart';
 
 class RecipeModel {
   final int id;
@@ -16,20 +17,24 @@ class RecipeModel {
   final List<String> directions;
   final String directionNote;
   final bool isFavorite;
+  @observable
+  bool isSelected;
 
-  RecipeModel(
-      {this.id,
-      this.name,
-      this.description,
-      this.note,
-      this.preparationTime,
-      this.cookingTime,
-      this.categoryId,
-      this.photo,
-      this.ingredients,
-      this.directions,
-      this.directionNote,
-      this.isFavorite});
+  RecipeModel({
+    this.id,
+    this.name,
+    this.description,
+    this.note,
+    this.preparationTime,
+    this.cookingTime,
+    this.categoryId,
+    this.photo,
+    this.ingredients,
+    this.directions,
+    this.directionNote,
+    this.isFavorite,
+    this.isSelected = true,
+  });
 
   factory RecipeModel.fromRecipe(Recipe recipe) {
     return RecipeModel(
@@ -60,6 +65,7 @@ class RecipeModel {
         ingredients: recipe.ingredients,
         directions: recipe.directions,
         directionNote: recipe.directionNote,
+        isSelected: recipe.isSelected,
         isFavorite: recipe.isFavorite);
   }
 }
