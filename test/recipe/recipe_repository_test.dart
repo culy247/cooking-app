@@ -22,7 +22,7 @@ void main() {
   group('Test Recipe Repository', () {
     test('Test create recipe', () async {
       final Recipe recipe =
-          Recipe(id: 1, name: 'Lunch', description: 'Lunch description', note : 'This is recipe test');
+          Recipe(id: 1, name: 'Soft Beef', description: 'Softbeef with tea', note : 'This is recipe beef test');
 
       // Mock: create recipe, return its id
       when(App.db.createRecipe(recipe.toCompanion(true)))
@@ -35,19 +35,34 @@ void main() {
       expect(result, recipe.id);
     });
 
-    // TODO: Write test
-    test('Test update recipe', () async {
-      
-    });
 
     // TODO: Write test
-    test('Test get categories', () async {
-      App.db.getCategories();
-      // Create category
-      final int result = await categoryRepository.createCategory(category);
+    test('Test get recipe', () async {
+      // Get Recipe
+      List<Recipe> result = await recipeRepository.getRecipes(1,1);
 
       // Verify
-      expect(result, category.id);
+      expect(result.length, 1);
     });
+
+
+    // TODO: Write test
+    test('Test search recipe recipe', () async {
+      // search recipe with beef
+      String keyword = 'Beef';
+      List<Recipe> result = await recipeRepository.searchRecipes('Beef');
+
+      // Verify
+      final bool checked = result[0].name?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].description?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].note?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].ingredients?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].description?.lower()?.contains(keyword.toLowerCase());
+      expect(checked, true);
+    });
+
+
+
+    
   });
 }
