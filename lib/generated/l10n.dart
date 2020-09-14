@@ -93,10 +93,10 @@ class S {
     );
   }
 
-  /// `Add an ingredients`
+  /// `Add an ingredient`
   String get addAnIngredients {
     return Intl.message(
-      'Add an ingredients',
+      'Add an ingredient',
       name: 'addAnIngredients',
       desc: '',
       args: [],
@@ -698,6 +698,36 @@ class S {
     return Intl.message(
       'Cookbook in your hand!',
       name: 'shareSubject',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get en {
+    return Intl.message(
+      'English',
+      name: 'en',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `French`
+  String get fr {
+    return Intl.message(
+      'French',
+      name: 'fr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vietnamese`
+  String get vi {
+    return Intl.message(
+      'Vietnamese',
+      name: 'vi',
       desc: '',
       args: [],
     );

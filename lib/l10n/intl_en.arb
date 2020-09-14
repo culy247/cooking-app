@@ -5,7 +5,7 @@
   "addNewCategory": "Add new category",
   "categoryName": "Category name",
   "categoryDescription": "Category description",
-  "addAnIngredients": "Add an ingredients",
+  "addAnIngredients": "Add an ingredient",
   "ingredientName": "Ingredient name",
   "ingredientAmount": "Ingredient amount",
   "save": "SAVE",
@@ -65,5 +65,8 @@
   "msgNoRecipeIn": "There is no recipe in",
   "share": "Share",
   "msgShare": "Checkout our app on store: https://google.com",
-  "shareSubject": "Cookbook in your hand!"
+  "shareSubject": "Cookbook in your hand!",
+  "en": "English",
+  "fr": "French",
+  "vi": "Vietnamese"
 }
