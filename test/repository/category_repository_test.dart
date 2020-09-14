@@ -37,17 +37,23 @@ void main() {
 
     // TODO: Write test
     test('Test update category', () async {
-      
+    final Category category =
+          Category(id: 1, name: 'Lunch', description: 'Lunch description - Updated');
+
+      // Create category
+      final int result = await categoryRepository.updateCategory(category);
+
+      // Verify
+      expect(result, true);
     });
 
     // TODO: Write test
     test('Test get categories', () async {
-      App.db.getCategories();
       // Create category
-      final int result = await categoryRepository.createCategory(category);
+      final ist<Category> listcategories =  await categoryRepository.createCategory(category);
 
       // Verify
-      expect(result, category.id);
+      expect(listcategories.length > 0, true);
     });
   });
 }
