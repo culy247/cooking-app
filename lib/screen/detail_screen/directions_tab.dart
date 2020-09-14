@@ -48,7 +48,7 @@ class _DirectionsTabState extends State<DirectionsTab> {
         bottom: Dimens.padding['screenPadding'],
       ),
       child: CookBookText(
-        text: S.of(context).summary,
+        text: S.of(context).directions,
         textColor: AppColors.selected,
         textSize: 30,
       ),

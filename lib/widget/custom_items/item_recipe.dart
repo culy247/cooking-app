@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
-import 'package:cooking/theme/images.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/material.dart';
@@ -54,17 +53,20 @@ class _ItemRecipeState extends State<ItemRecipe> {
                       padding:
                           EdgeInsets.only(left: Dimens.padding['tinyPadding']),
                       child: widget.image != null
-                          ? Image.memory(
-                              widget.image,
-                              fit: BoxFit.cover,
-                              width: getScreenWidth(context) / 4,
-                              height: getScreenWidth(context) / 4,
+                          ? ClipOval(
+                              child: Image.memory(
+                                widget.image,
+                                fit: BoxFit.cover,
+                                width: getScreenWidth(context) / 4,
+                                height: getScreenWidth(context) / 4,
+                              ),
                             )
-                          : Image.asset(
-                              Images.defaultImage,
-                              fit: BoxFit.cover,
-                              width: getScreenWidth(context) / 4,
-                              height: getScreenWidth(context) / 4,
+                          : ClipOval(
+                              child: Container(
+                                color: AppColors.primary,
+                                width: getScreenWidth(context) / 4,
+                                height: getScreenWidth(context) / 4,
+                              ),
                             ),
                     ),
                     Expanded(
