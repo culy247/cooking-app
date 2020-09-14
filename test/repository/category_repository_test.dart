@@ -50,7 +50,7 @@ void main() {
     // TODO: Write test
     test('Test get categories', () async {
       // Create category
-      final ist<Category> listcategories =  await categoryRepository.createCategory(category);
+      final List<Category> listcategories =  await categoryRepository.createCategory(category);
 
       // Verify
       expect(listcategories.length > 0, true);
