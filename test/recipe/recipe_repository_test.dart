@@ -44,5 +44,25 @@ void main() {
       // Verify
       expect(result.length, 1);
     });
+
+
+    // TODO: Write test
+    test('Test get recipe', () async {
+      // Create category
+      String keyword = 'Beef';
+      List<Recipe> result = await recipeRepository.searchRecipes('Beef');
+
+      // Verify
+      final bool checked = result[0].name?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].description?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].note?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].ingredients?.lower()?.contains(keyword.toLowerCase()) |
+            result[0].description?.lower()?.contains(keyword.toLowerCase());
+      expect(checked, true);
+    });
+
+
+
+    
   });
 }
