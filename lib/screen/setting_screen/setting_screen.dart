@@ -2,8 +2,10 @@ import 'package:cooking/generated/l10n.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
 import 'package:cooking/theme/images.dart';
+import 'package:cooking/utils/email_launcher.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
+import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
@@ -37,20 +39,18 @@ class _SettingState extends State<Setting> {
       child: Column(
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  icon,
-                  Padding(
-                    padding:
-                        EdgeInsets.only(left: Dimens.padding['mediumPadding']),
-                    child: Text(
-                      text,
-                      style: TextStyle(fontSize: Dimens.texts['largeText']),
-                    ),
+              icon,
+              Expanded(
+                child: Padding(
+                  padding:
+                      EdgeInsets.only(left: Dimens.padding['mediumPadding']),
+                  child: CookBookText(
+                    text: text,
+                    textSize: 20,
+                    textColor: AppColors.primary,
                   ),
-                ],
+                ),
               ),
             ],
           ),
@@ -122,7 +122,9 @@ class _SettingState extends State<Setting> {
           buildItems(
               icon: const Icon(Icons.help),
               text: S.of(context).help,
-              onPressed: () {}),
+              onPressed: () {
+                sendEmail();
+              }),
           buildItems(
               icon: const Icon(Icons.g_translate),
               text: S.of(context).language,
