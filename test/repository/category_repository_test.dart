@@ -32,7 +32,7 @@ void main() {
       final int result = await categoryRepository.createCategory(category);
 
       // Verify
-      expect(result, 1);
+      expect(result, category.id);
     });
 
     // TODO: Write test
