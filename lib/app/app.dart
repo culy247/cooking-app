@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
   const App({Key key}) : super(key: key);
-  static final DB db = DB();
+  static DB db = DB();
 
   @override
   State<App> createState() => _AppState();

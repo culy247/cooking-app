@@ -11,7 +11,7 @@ class CategoryRepository {
     return categories;
   }
 
-  Future<void> createCategory(Category category) async {
+  Future<int> createCategory(Category category) async {
     return App.db.createCategory(category.toCompanion(false));
   }
 
