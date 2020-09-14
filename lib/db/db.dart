@@ -110,7 +110,7 @@ class DB extends _$DB {
     return result;
   }
 
-  Future<void> createRecipe(RecipesCompanion entry) {
+  Future<int> createRecipe(RecipesCompanion entry) {
     return into(recipes).insert(entry).catchError((error) {
       AppLogger.instance.e(error);
     });
