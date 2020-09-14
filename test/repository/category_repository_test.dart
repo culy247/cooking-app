@@ -9,7 +9,6 @@ class MockDB extends Mock implements DB {}
 void main() {
   CategoryRepository categoryRepository;
 
-
   // Before test
   setUp(() {
     categoryRepository = CategoryRepository();
@@ -35,25 +34,34 @@ void main() {
       expect(result, category.id);
     });
 
-    // TODO: Write test
     test('Test update category', () async {
-    final Category category =
-          Category(id: 1, name: 'Lunch', description: 'Lunch description - Updated');
+      final Category category = Category(
+          id: 1, name: 'Lunch', description: 'Lunch description - Updated');
+
+      // Mock: create category, return its id
+      when(App.db.updateCategory(category.toCompanion(true)))
+          .thenAnswer((_) async => true);
 
       // Create category
-      final int result = await categoryRepository.updateCategory(category);
+      final bool result = await categoryRepository.updateCategory(category);
 
       // Verify
       expect(result, true);
     });
 
-    // TODO: Write test
     test('Test get categories', () async {
-      // Create category
-      final List<Category> listcategories =  await categoryRepository.createCategory(category);
+      final Category category = Category(
+          id: 1, name: 'Lunch', description: 'Lunch description - Updated');
 
-      // Verify
-      expect(listcategories.length > 0, true);
+      // Mock: create category, return its id
+      when(App.db.getCategories()).thenAnswer((_) async => [category]);
+
+      // Get categories
+      final List<Category> categories =
+          await categoryRepository.getCategories();
+
+      expect(categories, isNotNull);
+      expect(categories.length, 1);
     });
   });
 }
