@@ -672,6 +672,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Share`
+  String get share {
+    return Intl.message(
+      'Share',
+      name: 'share',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Checkout our app on store: https://google.com`
+  String get msgShare {
+    return Intl.message(
+      'Checkout our app on store: https://google.com',
+      name: 'msgShare',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cookbook in your hand!`
+  String get shareSubject {
+    return Intl.message(
+      'Cookbook in your hand!',
+      name: 'shareSubject',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
