@@ -41,7 +41,7 @@ void main() {
           Category(id: 1, name: 'Lunch', description: 'Lunch description - Updated');
 
       // Create category
-      final int result = await categoryRepository.updateCategory(category);
+      final bool result = await categoryRepository.updateCategory(category);
 
       // Verify
       expect(result, true);

@@ -22,7 +22,7 @@ void main() {
   group('Test Recipe Repository', () {
     test('Test create recipe', () async {
       final Recipe recipe =
-          Recipe(id: 1, name: 'Lunch', description: 'Lunch description', note : 'This is recipe test');
+          Recipe(id: 1, name: 'Soft Beef', description: 'Softbeef with tea', note : 'This is recipe beef test');
 
       // Mock: create recipe, return its id
       when(App.db.createRecipe(recipe.toCompanion(true)))
@@ -35,19 +35,14 @@ void main() {
       expect(result, recipe.id);
     });
 
-    // TODO: Write test
-    test('Test update recipe', () async {
-      
-    });
 
     // TODO: Write test
-    test('Test get categories', () async {
-      App.db.getCategories();
+    test('Test get recipe', () async {
       // Create category
-      final int result = await categoryRepository.createCategory(category);
+      List<Recipe> result = await recipeRepository.getRecipes(1,1);
 
       // Verify
-      expect(result, category.id);
+      expect(result.length, 1);
     });
   });
 }
