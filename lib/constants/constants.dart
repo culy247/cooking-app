@@ -22,4 +22,8 @@ class Constants {
 
   static const String AND_SEPARATOR = '&&&';
   static const String ADD_SEPARATOR = '+++';
+
+  static const List<String> LANGUAGES = [
+    'English', 'French', 'Vietnamese'
+  ];
 }

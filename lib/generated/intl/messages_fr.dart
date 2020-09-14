@@ -37,10 +37,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "directions" : MessageLookupByLibrary.simpleMessage("Directions"),
     "done" : MessageLookupByLibrary.simpleMessage("DONE"),
     "editCategory" : MessageLookupByLibrary.simpleMessage("Edit category"),
+    "en" : MessageLookupByLibrary.simpleMessage("English"),
     "export" : MessageLookupByLibrary.simpleMessage("Export"),
     "exportToJson" : MessageLookupByLibrary.simpleMessage("Export to JSON"),
     "favorite" : MessageLookupByLibrary.simpleMessage("Favorite"),
     "filter" : MessageLookupByLibrary.simpleMessage("Filter"),
+    "fr" : MessageLookupByLibrary.simpleMessage("French"),
     "hello" : MessageLookupByLibrary.simpleMessage("Hello"),
     "help" : MessageLookupByLibrary.simpleMessage("Help"),
     "import" : MessageLookupByLibrary.simpleMessage("Import"),
@@ -82,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tryAgain" : MessageLookupByLibrary.simpleMessage("Try Again"),
     "unSelectAll" : MessageLookupByLibrary.simpleMessage("Un select all"),
     "unit" : MessageLookupByLibrary.simpleMessage("Unit"),
+    "vi" : MessageLookupByLibrary.simpleMessage("Vietnamese"),
     "yes" : MessageLookupByLibrary.simpleMessage("YES")
   };
 }

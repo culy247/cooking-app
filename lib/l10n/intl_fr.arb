@@ -60,5 +60,8 @@
   "mins": "mins",
   "msgPleaseEnterTime": "Please enter time",
   "msgPleaseProvideDirections": "Please provide directions!",
-  "msgPleaseProvideIngredients": "Please provide ingredients!"
+  "msgPleaseProvideIngredients": "Please provide ingredients!",
+  "en": "English",
+  "fr": "French",
+  "vi": "Vietnamese"
 }
