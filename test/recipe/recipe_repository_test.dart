@@ -38,7 +38,7 @@ void main() {
 
     // TODO: Write test
     test('Test get recipe', () async {
-      // Create category
+      // Get Recipe
       List<Recipe> result = await recipeRepository.getRecipes(1,1);
 
       // Verify
@@ -47,8 +47,8 @@ void main() {
 
 
     // TODO: Write test
-    test('Test get recipe', () async {
-      // Create category
+    test('Test search recipe recipe', () async {
+      // search recipe with beef
       String keyword = 'Beef';
       List<Recipe> result = await recipeRepository.searchRecipes('Beef');
 
