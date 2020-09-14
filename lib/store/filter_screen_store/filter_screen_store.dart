@@ -39,9 +39,6 @@ abstract class _FilterScreenStore with Store {
 
   @action
   void checkClick(int index) {
-    // listDataCategories.forEach((element) {
-    //   element.isSelected = false;
-    // });
     for(final element in listDataCategories) {
       element.isSelected = false;
     }
@@ -51,6 +48,5 @@ abstract class _FilterScreenStore with Store {
   }
 
   @action
-  // TODO: updateCategory func
   void updateCategory(Category category) {}
 }

@@ -5,10 +5,12 @@ import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/material.dart';
 
 class ItemsCategories extends StatefulWidget {
-  const ItemsCategories({this.filterScreenStore, this.index});
+  const ItemsCategories(
+      {this.filterScreenStore, this.index, this.onItemPressed});
 
   final FilterScreenStore filterScreenStore;
   final int index;
+  final Function onItemPressed;
 
   @override
   _ItemsCategoriesState createState() => _ItemsCategoriesState();
@@ -20,6 +22,7 @@ class _ItemsCategoriesState extends State<ItemsCategories> {
     return ListTile(
         onTap: () {
           widget.filterScreenStore.checkClick(widget.index);
+          widget.onItemPressed?.call(widget.index);
           setState(() {});
         },
         leading: Icon(

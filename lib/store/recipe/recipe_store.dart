@@ -20,6 +20,9 @@ abstract class _RecipeStore with Store {
   @observable
   ObservableList<RecipeModel> searchedRecipes = ObservableList<RecipeModel>();
 
+  @observable
+  ObservableList<RecipeModel> filteredRecipes = ObservableList<RecipeModel>();
+
   @action
   Future<void> getRecipes({bool onlyFavorite = false}) async {
     // Get favorite recipe
@@ -110,4 +113,23 @@ abstract class _RecipeStore with Store {
   //   final RecipeModel updatedRecipe = RecipeModel.copy(recipeList[index]);
   //   recipeList.replaceRange(index, index + 1, [updatedRecipe]);
   // }
+
+  @action
+  Future<void> getRecipesByCategory(int categoryId) async {
+    isLoading = true;
+
+    filteredRecipes.clear();
+
+    final RecipeRepository recipeRepository = RecipeRepository();
+    final List<Recipe> recipes =
+        await recipeRepository.getRecipesByCategoryId(categoryId);
+    if (recipes != null && recipes.isNotEmpty) {
+      for (final recipe in recipes) {
+        final RecipeModel recipeModel = RecipeModel.fromRecipe(recipe);
+        filteredRecipes.add(recipeModel);
+      }
+    }
+
+    isLoading = false;
+  }
 }

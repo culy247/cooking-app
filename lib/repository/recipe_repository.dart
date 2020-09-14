@@ -12,6 +12,13 @@ class RecipeRepository {
     return recipes;
   }
 
+  Future<List<Recipe>> getRecipesByCategoryId(int categoryId) async {
+    final List<Recipe> recipes =
+    await App.db.getRecipeByCategory(categoryId);
+
+    return recipes;
+  }
+
   Future<List<Recipe>> getFavoriteRecipes({int limit, int offset}) async {
     final List<Recipe> recipes =
         await App.db.getFavoriteRecipes(limit: limit, offset: offset);

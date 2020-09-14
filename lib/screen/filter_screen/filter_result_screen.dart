@@ -4,26 +4,31 @@ import 'package:cooking/screen/detail_screen/detail_screen.dart';
 import 'package:cooking/store/recipe/recipe_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/images.dart';
+import 'package:cooking/utils/logger.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
+import 'package:cooking/widget/custom_button/back_button.dart';
 import 'package:cooking/widget/custom_items/item_recipe.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
-import 'package:cooking/widget/custom_textfield_search/search_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
 
-class FavoriteScreen extends StatefulWidget {
+class FilterResultScreen extends StatefulWidget {
+  final int categoryId;
+  final String categoryName;
+
+  const FilterResultScreen({Key key, this.categoryId, this.categoryName})
+      : super(key: key);
+
   @override
-  _FavoriteScreenState createState() => _FavoriteScreenState();
+  _FilterResultScreenState createState() => _FilterResultScreenState();
 }
 
-class _FavoriteScreenState extends State<FavoriteScreen> {
-  final searchEditingController = TextEditingController();
-  String dataTextSearch = '';
+class _FilterResultScreenState extends State<FilterResultScreen> {
   int index = 0;
-  RecipeStore recipeStore;
+  RecipeStore recipeStore = RecipeStore();
 
   @override
   void initState() {
@@ -37,15 +42,13 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    recipeStore = Provider.of<RecipeStore>(context);
-    return buildContent();
+    return Scaffold(body: buildContent());
   }
 
   Widget buildContent() {
     return Column(
       children: <Widget>[
         buildHeader(),
-        // buildSearchBox(),
         buildRecipeList(),
       ],
     );
@@ -54,35 +57,38 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget buildHeader() {
     return ClipPath(
         clipper: AppBarClipper(),
-        child: Container(
-          alignment: Alignment.bottomCenter,
-          color: AppColors.primary,
-          height: getScreenHeight(context) * 0.2,
-          child: Align(
-            child: Image(
-                image: const AssetImage(Images.icCarrot),
-                height: getScreenWidth(context) * 0.2,
-                width: getScreenWidth(context) * 0.2),
-          ),
+        child: Stack(
+          children: [
+            Container(
+              alignment: Alignment.bottomCenter,
+              color: AppColors.primary,
+              height: getScreenHeight(context) * 0.2,
+              child: Align(
+                child: Image(
+                    image: const AssetImage(Images.icCarrot),
+                    height: getScreenWidth(context) * 0.2,
+                    width: getScreenWidth(context) * 0.2),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: CookbookBackButton(
+                onPressed: () {
+                  Get.back();
+                },
+              ),
+            )
+          ],
         ));
-  }
-
-  Widget buildSearchBox() {
-    return Padding(
-      padding: const EdgeInsets.all(15),
-      child: SearchBox(
-        onTextChanged: onSearchTextChanged,
-      ),
-    );
   }
 
   Widget buildRecipeList() {
     return Expanded(child: Observer(
       builder: (BuildContext context) {
-        if (recipeStore.favoriteRecipes.isEmpty) {
+        if (recipeStore.filteredRecipes.isEmpty) {
           return Center(
             child: CookBookText(
-              text: S.of(context).msgNoRecipe,
+              text: '${S.of(context).msgNoRecipeIn} ${widget.categoryName}',
               textColor: Colors.red,
               textSize: 20,
               textAlign: TextAlign.center,
@@ -91,24 +97,24 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         }
 
         return ListView.builder(
-          itemCount: recipeStore.favoriteRecipes.length,
+          itemCount: recipeStore.filteredRecipes.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
                 navigateTo(DetailScreen(
-                  recipe: recipeStore.favoriteRecipes[index],
+                  recipe: recipeStore.filteredRecipes[index],
                 ));
               },
               child: ItemRecipe(
-                name: recipeStore.favoriteRecipes[index].name,
+                name: recipeStore.filteredRecipes[index].name,
                 checkFavorite: false,
-                description: recipeStore.favoriteRecipes[index].description,
+                description: recipeStore.filteredRecipes[index].description,
                 onPressed: () {
                   navigateTo(DetailScreen(
-                    recipe: recipeStore.favoriteRecipes[index],
+                    recipe: recipeStore.filteredRecipes[index],
                   ));
                 },
-                image: recipeStore.favoriteRecipes[index].photo,
+                image: recipeStore.filteredRecipes[index].photo,
               ),
             );
           },
@@ -117,11 +123,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     ));
   }
 
-  void onSearchTextChanged(String text) {
-    recipeStore.searchRecipe(text, isFavorite: true);
-  }
-
   void onBuildDone() {
-    recipeStore.getFavoriteRecipes();
+    recipeStore.getRecipesByCategory(widget.categoryId);
   }
 }
