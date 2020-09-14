@@ -125,7 +125,7 @@ class DB extends _$DB {
     });
   }
 
-  Future<void> createCategory(CategoriesCompanion entry) {
+  Future<int> createCategory(CategoriesCompanion entry) {
     return into(categories)
         .insert(entry, mode: InsertMode.insertOrReplace)
         .catchError((error) {
