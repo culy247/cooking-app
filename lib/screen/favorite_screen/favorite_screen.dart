@@ -1,3 +1,4 @@
+import 'package:cooking/generated/l10n.dart';
 import 'package:cooking/navigation/navigation.dart';
 import 'package:cooking/screen/detail_screen/detail_screen.dart';
 import 'package:cooking/store/recipe/recipe_store.dart';
@@ -8,6 +9,7 @@ import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
 import 'package:cooking/widget/contents.dart';
 import 'package:cooking/widget/custom_items/item_recipe.dart';
+import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:cooking/widget/custom_textfield_search/search_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -98,6 +100,17 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget buildRecipeList() {
     return Expanded(child: Observer(
       builder: (BuildContext context) {
+        if (recipeStore.favoriteRecipes.isEmpty) {
+          return Center(
+            child: CookBookText(
+              text: S.of(context).msgNoRecipe,
+              textColor: Colors.red,
+              textSize: 20,
+              textAlign: TextAlign.center,
+            ),
+          );
+        }
+
         return ListView.builder(
           itemCount: recipeStore.favoriteRecipes.length,
           itemBuilder: (BuildContext context, int index) {
