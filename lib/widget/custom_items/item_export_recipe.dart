@@ -7,32 +7,22 @@ import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/material.dart';
 
-class ItemRecipe extends StatefulWidget {
-  const ItemRecipe({
+class ItemExportRecipe extends StatelessWidget {
+  const ItemExportRecipe({
     this.name,
     this.description,
     this.image,
-    this.checkFavorite,
-    this.showModalBottom,
     this.onPressed,
+    this.isSelected = false,
+    this.index,
   });
 
   final String name;
   final String description;
   final Uint8List image;
-  final bool checkFavorite;
-  final Function showModalBottom;
   final Function onPressed;
-
-  @override
-  _ItemRecipeState createState() => _ItemRecipeState();
-}
-
-class _ItemRecipeState extends State<ItemRecipe> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  final bool isSelected;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +30,22 @@ class _ItemRecipeState extends State<ItemRecipe> {
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            widget.onPressed?.call();
+            onPressed?.call(index, isSelected);
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
               elevation: 4,
               child: Padding(
-                padding: EdgeInsets.all(Dimens.padding['smallPadding']),
+                padding: EdgeInsets.all(Dimens.padding['mediumPadding']),
                 child: Row(
                   children: <Widget>[
                     Padding(
                       padding:
                           EdgeInsets.only(left: Dimens.padding['tinyPadding']),
-                      child: widget.image != null
+                      child: image != null
                           ? Image.memory(
-                              widget.image,
+                              image,
                               fit: BoxFit.cover,
                               width: getScreenWidth(context) / 4,
                               height: getScreenWidth(context) / 4,
@@ -78,12 +68,12 @@ class _ItemRecipeState extends State<ItemRecipe> {
                                 padding: EdgeInsets.only(
                                     bottom: Dimens.padding['smallPadding']),
                                 child: CookBookText(
-                                    text: widget.name,
+                                    text: name,
                                     textSize: Dimens.texts['veryLargeText'],
                                     textColor: AppColors.primary,
                                     fontWeight: FontWeight.bold)),
                             CookBookText(
-                              text: widget.description,
+                              text: description,
                               textSize: Dimens.texts['mediumText'],
                               maxLines: 3,
                             ),
@@ -97,23 +87,30 @@ class _ItemRecipeState extends State<ItemRecipe> {
             ),
           ),
         ),
-        if (widget.checkFavorite)
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: EdgeInsets.only(right: Dimens.padding['tinyPadding']),
-              child: IconButton(
-                icon: const Icon(Icons.star, color: AppColors.selected),
-                onPressed: () {
-                  if (widget.showModalBottom != null) {
-                    widget.showModalBottom();
-                  }
-                },
+        if (isSelected)
+          const Padding(
+            padding: EdgeInsets.all(15),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Icon(
+                Icons.check_circle,
+                color: AppColors.selected,
+                size: 35,
               ),
             ),
           )
         else
-          Container(),
+          const Padding(
+            padding: EdgeInsets.all(15),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Icon(
+                Icons.check_circle_outline,
+                color: AppColors.colorTextGray,
+                size: 35,
+              ),
+            ),
+          )
       ],
     );
   }

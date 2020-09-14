@@ -1,14 +1,14 @@
 import 'package:cooking/generated/l10n.dart';
-import 'package:cooking/navigation/navigation.dart';
-import 'package:cooking/screen/detail_screen/detail_screen.dart';
+import 'package:cooking/store/export_store/export_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
-import 'package:cooking/widget/contents.dart';
-import 'package:cooking/widget/custom_items/item_recipe.dart';
+import 'package:cooking/widget/custom_button/back_button.dart';
+import 'package:cooking/widget/custom_items/item_export_recipe.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart';
 
 class ExportScreen extends StatefulWidget {
@@ -18,15 +18,26 @@ class ExportScreen extends StatefulWidget {
 
 class _ExportScreenState extends State<ExportScreen> {
   bool selectAll = false;
+  ExportStore exportStore = ExportStore();
+
+  @override
+  void initState() {
+    super.initState();
+
+    onWidgetBuildDone(onBuildDone);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: <Widget>[
-      buildBGTop(),
-      //SearchBox(),
+      buildHeader(),
       buildButtonSelectAll(),
-      buildContent(),
+      Observer(
+        builder: (_) {
+          return buildContent();
+        },
+      ),
       buildButtonBottom()
     ]));
   }
@@ -44,21 +55,22 @@ class _ExportScreenState extends State<ExportScreen> {
     );
   }
 
-  Widget buildBGTop() {
+  Widget buildHeader() {
     return Container(
       color: Colors.transparent,
       child: ClipPath(
           clipper: AppBarClipper(),
           child: Container(
-            height: getScreenWidth(context) * 0.45,
+            height: getScreenHeight(context) * 0.2,
             decoration: const BoxDecoration(
               color: AppColors.primary,
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.all(Dimens.padding['screenPadding']),
-                  child: BackButton(
+                  child: CookbookBackButton(
                     onPressed: () {
                       Get.back();
                     },
@@ -86,27 +98,24 @@ class _ExportScreenState extends State<ExportScreen> {
   }
 
   Widget buildContent() {
+    if (exportStore.recipeList.isEmpty) {
+      return Expanded(child: Center(child: buildErrorMessage()));
+    }
     return Expanded(
       child: ListView(
         children: <Widget>[
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: contents.length,
+            itemCount: exportStore.recipeList.length,
             itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  navigateTo(DetailScreen());
-                },
-                child: ItemRecipe(
-                  // recipe: contents[index],
-                  // nameCook: contents[index].name,
-                  // checkFavorite: false,
-                  // description: contents[index].content,
-                  // image: contents[index],
-                  // checkIconChoose: selectAll,
-                  // checkShowIconChoose: true,
-                ),
+              return ItemExportRecipe(
+                index: index,
+                name: exportStore.recipeList[index].name,
+                description: exportStore.recipeList[index].description,
+                image: exportStore.recipeList[index].photo,
+                onPressed: onItemPressed,
+                isSelected: exportStore.recipeList[index].isSelected,
               );
             },
           ),
@@ -115,13 +124,28 @@ class _ExportScreenState extends State<ExportScreen> {
     );
   }
 
+  Widget buildErrorMessage() {
+    return CookBookText(
+      text: S.of(context).msgLoadRecipeError,
+      textColor: Colors.deepOrangeAccent,
+      textSize: 20,
+      textAlign: TextAlign.center,
+    );
+  }
+
   Widget buildButtonSelectAll() {
     return Padding(
       padding: EdgeInsets.all(Dimens.padding['screenPadding']),
       child: GestureDetector(
         onTap: () {
-          selectAll = !selectAll;
-          setState(() {});
+          setState(() {
+            selectAll = !selectAll;
+          });
+          if (selectAll) {
+            exportStore.selectAllRecipes();
+          } else {
+            exportStore.unselectAllRecipes();
+          }
         },
         child: Row(
           children: [
@@ -140,14 +164,14 @@ class _ExportScreenState extends State<ExportScreen> {
               child: selectAll
                   ? CookBookText(
                       text: '${S.of(context).selectAll}'
-                          '${' (${contents.length})'}',
+                          '${' (${exportStore.recipeList.length})'}',
                       textColor: AppColors.primary,
                       textSize: Dimens.texts['veryLargeText'],
                       fontWeight: FontWeight.bold,
                     )
                   : CookBookText(
                       text: '${S.of(context).unSelectAll}'
-                          '${' (${contents.length})'}',
+                          '${' (${exportStore.recipeList.length})'}',
                       textSize: Dimens.texts['veryLargeText'],
                     ),
             )
@@ -175,5 +199,13 @@ class _ExportScreenState extends State<ExportScreen> {
         ],
       ),
     );
+  }
+
+  void onBuildDone() {
+    exportStore.getRecipes();
+  }
+
+  void onItemPressed(int index, bool currentSelectedState) {
+    exportStore.updateRecipeSelectedState(index, !currentSelectedState);
   }
 }
