@@ -15,12 +15,12 @@ import 'package:get/get.dart';
 ///
 Future navigateTo(Widget screen,
     {Transition transition,
-    bool clearStack,
-    bool offCurrentScreen,
+    bool clearStack = false,
+    bool offCurrentScreen = false,
     Duration duration}) async {
-  var data;
+  dynamic data;
   final t = transition ?? Transition.rightToLeftWithFade;
-  final d = duration ?? Duration(milliseconds: 250);
+  final d = duration ?? const Duration(milliseconds: 250);
   if (clearStack) {
     data = await Get.offAll(screen, transition: t, duration: d);
   } else if (offCurrentScreen) {

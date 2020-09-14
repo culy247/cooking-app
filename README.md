@@ -10,4 +10,9 @@
 
 4. Import project to your IDE
 
-5. Run it
+5. Run this command to generate needed code:
+```
+flutter packages pub run build_runner watch --delete-conflicting-outputs
+```
+
+6. Run the code

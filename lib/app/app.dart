@@ -1,5 +1,10 @@
+import 'package:cooking/db/db.dart';
 import 'package:cooking/generated/l10n.dart';
-import 'package:cooking/screen/home/home_screen.dart';
+import 'package:cooking/repository/category_repository.dart';
+import 'package:cooking/repository/recipe_repository.dart';
+import 'package:cooking/screen/splash_screen/splash_screen.dart';
+import 'package:cooking/store/filter_screen_store/filter_screen_store.dart';
+import 'package:cooking/store/recipe/recipe_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/fonts.dart';
 import 'package:flutter/cupertino.dart';
@@ -7,9 +12,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
-  App({Key key}) : super(key: key);
+  const App({Key key}) : super(key: key);
+  static final DB db = DB();
 
   @override
   State<App> createState() => _AppState();
@@ -17,54 +24,51 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   @override
+  void initState() {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIOverlays(
+        [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: AppColors.primary,
-    ));
-    return GetMaterialApp(
-      home: MaterialApp(
-          color: AppColors.primary,
-          title: '',
-          localizationsDelegates: [
+    return MultiProvider(
+      providers: [
+        Provider<FilterScreenStore>.value(
+            value: FilterScreenStore(CategoryRepository())),
+        Provider<RecipeRepository>.value(value: RecipeRepository()),
+        Provider<CategoryRepository>.value(value: CategoryRepository()),
+        Provider<RecipeStore>.value(value: RecipeStore())
+      ],
+      child: GetMaterialApp(
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          localeResolutionCallback:
-              (Locale locale, Iterable<Locale> supportedLocales) {
-            if (locale == null) {
-              debugPrint('*language locale is null!!!');
-              return supportedLocales.first;
-            }
-
-            for (var supportedLocale in supportedLocales) {
-              if (locale != null) {
-                if (supportedLocale.languageCode == locale.languageCode ||
-                    supportedLocale.countryCode == locale.countryCode) {
-                  return supportedLocale;
-                }
-              }
-            }
-            return supportedLocales.first;
-          },
-          // onGenerateRoute: App.router.generator,
+          color: AppColors.primary,
           theme: ThemeData(
               primaryColor: AppColors.primary,
-              //          accentColor: AppColors.primary,
-              fontFamily: Fonts.robotoRegular,
-              cupertinoOverrideTheme: CupertinoThemeData(
+              fontFamily: Fonts.quicksand,
+              cupertinoOverrideTheme: const CupertinoThemeData(
                   textTheme: CupertinoTextThemeData(
                       dateTimePickerTextStyle: TextStyle(
                           fontSize: 25, fontWeight: FontWeight.w300))),
-              primaryTextTheme: TextTheme(
+              primaryTextTheme: const TextTheme(
                 headline6:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
-              primaryIconTheme: IconThemeData(color: Colors.white)),
-          //home: TutorialScreen(),
-          home: HomeScreen()),
+              primaryIconTheme: const IconThemeData(color: Colors.white)),
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen()),
     );
   }
 }

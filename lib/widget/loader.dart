@@ -9,7 +9,7 @@ class Loader extends StatefulWidget {
   const Loader({Key key, this.width, this.height}) : super(key: key);
 
   @override
-  State createState() => _LoaderState();
+  _LoaderState createState() => _LoaderState();
 }
 
 class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
@@ -22,7 +22,7 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
       vsync: this,
     )..repeat(reverse: true);
 
@@ -33,8 +33,9 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(ctx) {
+  Widget build(BuildContext ctx) {
     return FadeTransition(
+      opacity: _opacity,
       child: Center(
         child: Image.asset(
           Images.icAdd,
@@ -42,7 +43,6 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
           height: widget.height ?? getScreenWidth(context) / 10,
         ),
       ),
-      opacity: _opacity,
     );
   }
 

@@ -25,7 +25,7 @@ class CircleProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultSize = getScreenWidth(context) * 0.35;
+    final defaultSize = getScreenWidth(context) * 0.35;
 
     return imageUrl != null
         ? Container(
@@ -33,7 +33,7 @@ class CircleProfileImage extends StatelessWidget {
             height: height ?? defaultSize,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColors.primary,
                   blurRadius: 10.0, // has the effect of softening the shadow
@@ -46,7 +46,7 @@ class CircleProfileImage extends StatelessWidget {
               child: CachedNetworkImage(
                   fit: BoxFit.cover,
                   imageUrl: imageUrl,
-                  placeholder: (context, url) => Loader(),
+                  placeholder: (context, url) => const Loader(),
                   errorWidget: (context, url, error) =>
                       _buildLoadImageError(context, defaultSize)),
             ),
@@ -54,7 +54,7 @@ class CircleProfileImage extends StatelessWidget {
         : Container(
             width: width ?? defaultSize,
             height: height ?? defaultSize,
-            decoration: BoxDecoration(shape: BoxShape.circle),
+            decoration: const BoxDecoration(shape: BoxShape.circle),
             child: Image.asset(Images.icAdd),
           );
   }
@@ -63,7 +63,7 @@ class CircleProfileImage extends StatelessWidget {
     return Container(
       width: width ?? defaultSize,
       height: height ?? defaultSize,
-      decoration: BoxDecoration(shape: BoxShape.circle),
+      decoration: const BoxDecoration(shape: BoxShape.circle),
       child: Image.asset(
         Images.icAdd,
         fit: BoxFit.cover,
