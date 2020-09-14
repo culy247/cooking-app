@@ -3,7 +3,7 @@ import 'package:cooking/model/recipe_model.dart';
 import 'package:cooking/navigation/navigation.dart';
 import 'package:cooking/screen/detail_screen/detail_screen.dart';
 import 'package:cooking/screen/export_screen/export_screen.dart';
-import 'package:cooking/screen/filter_screen/filter_screen.dart';
+import 'package:cooking/screen/filter_screen/select_category_screen.dart';
 import 'package:cooking/store/recipe/recipe_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
@@ -130,7 +130,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
                   }),
                   buildAppBarIcon(S.of(context).filter, Icons.filter_list,
                       onPressed: () {
-                    navigateTo(FilterScreen(),
+                    navigateTo(SelectCategoryScreen(),
                         transition: getx.Transition.downToUp);
                   })
                 ],

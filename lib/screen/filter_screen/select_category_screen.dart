@@ -1,31 +1,34 @@
 import 'package:cooking/generated/l10n.dart';
+import 'package:cooking/navigation/navigation.dart';
+import 'package:cooking/screen/filter_screen/filter_result_screen.dart';
 import 'package:cooking/store/filter_screen_store/filter_screen_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
 import 'package:cooking/theme/images.dart';
+import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
 import 'package:cooking/widget/custom_items/items_categories.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
-import 'package:cooking/widget/loading_container/loading_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/ui_utils.dart';
-
-class FilterScreen extends StatefulWidget {
+class SelectCategoryScreen extends StatefulWidget {
   @override
-  _FilterScreenState createState() => _FilterScreenState();
+  _SelectCategoryScreenState createState() => _SelectCategoryScreenState();
 }
 
-class _FilterScreenState extends State<FilterScreen> {
+class _SelectCategoryScreenState extends State<SelectCategoryScreen> {
   FilterScreenStore filterScreenStore;
+  int selectedCategoryIndex;
+  String selectedCategoryName;
 
   @override
   void initState() {
-    onWidgetBuildDone(createListCategories);
-    // TODO: implement initState
     super.initState();
+
+    onWidgetBuildDone(createListCategories);
   }
 
   @override
@@ -60,7 +63,7 @@ class _FilterScreenState extends State<FilterScreen> {
     return Expanded(
       child: Stack(
         children: <Widget>[
-          buildContainer(),
+          buildCategoryList(),
           buildBottomDone(),
         ],
       ),
@@ -84,17 +87,7 @@ class _FilterScreenState extends State<FilterScreen> {
       child: Container(
         alignment: Alignment.bottomCenter,
         color: AppColors.primary,
-        height: getScreenWidth(context) * 0.50,
-        child: Padding(
-          padding: EdgeInsets.all(Dimens.padding['largePadding']),
-          child: Align(
-              alignment: Alignment.topCenter,
-              child: Image(
-                image: const AssetImage(Images.icCarrot),
-                height: getScreenWidth(context) * 0.18,
-                width: getScreenWidth(context) * 0.18,
-              )),
-        ),
+        height: getScreenWidth(context) * 0.4,
       ),
     );
   }
@@ -102,6 +95,14 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget buildIconOnBackground() {
     return Column(
       children: <Widget>[
+        Image(
+          image: const AssetImage(Images.icCarrot),
+          height: getScreenWidth(context) * 0.18,
+          width: getScreenWidth(context) * 0.18,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
         Padding(
           padding: EdgeInsets.only(bottom: Dimens.padding['smallPadding']),
           child: Icon(
@@ -135,8 +136,18 @@ class _FilterScreenState extends State<FilterScreen> {
       alignment: Alignment.topRight,
       child: GestureDetector(
         onTap: () {
-          Navigator.pop(context);
-          setState(() {});
+          if (selectedCategoryIndex != null) {
+            navigateTo(
+                FilterResultScreen(
+                  categoryId: filterScreenStore
+                      .listDataCategories[selectedCategoryIndex].id,
+                  categoryName: filterScreenStore
+                      .listDataCategories[selectedCategoryIndex].name,
+                ),
+                offCurrentScreen: true);
+          } else {
+            Get.back();
+          }
         },
         child: Container(
             padding: EdgeInsets.all(Dimens.padding['largePadding']),
@@ -149,7 +160,7 @@ class _FilterScreenState extends State<FilterScreen> {
     );
   }
 
-  Widget buildContainer() {
+  Widget buildCategoryList() {
     return Container(
       padding: EdgeInsets.only(
           top: Dimens.padding['smallPadding'],
@@ -170,11 +181,22 @@ class _FilterScreenState extends State<FilterScreen> {
         ],
       ),
       child: Observer(builder: (_) {
-        return LoadingContainer(
-          isLoading: filterScreenStore.isShowLoading,
-          child: buildList(),
+        return ListView.builder(
+          itemCount: filterScreenStore.listDataCategories.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ItemsCategories(
+              filterScreenStore: filterScreenStore,
+              index: index,
+              onItemPressed: onItemPressed,
+            );
+          },
         );
       }),
     );
+  }
+
+  void onItemPressed(int index) {
+    selectedCategoryIndex = index;
+    selectedCategoryName = filterScreenStore.listDataCategories[index].name;
   }
 }

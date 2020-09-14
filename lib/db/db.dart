@@ -80,6 +80,17 @@ class DB extends _$DB {
     return result;
   }
 
+  Future<List<Recipe>> getRecipeByCategory(int categoryId) {
+    final Future<List<Recipe>> result = (select(recipes)
+      ..where((tbl) => tbl.categoryId.equals(categoryId)))
+        .get()
+        .catchError((error) {
+      AppLogger.instance.e(error);
+    });
+
+    return result;
+  }
+
   Future<List<Recipe>> searchRecipes(String keyword, {bool isFavorite}) {
     final query = select(recipes)
       ..where((tbl) {

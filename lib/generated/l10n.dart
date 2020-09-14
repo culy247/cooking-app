@@ -652,6 +652,26 @@ class S {
       args: [],
     );
   }
+
+  /// `There is no recipes in your favorite list!`
+  String get msgThereIsNoFavoriteRecipes {
+    return Intl.message(
+      'There is no recipes in your favorite list!',
+      name: 'msgThereIsNoFavoriteRecipes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no recipe in`
+  String get msgNoRecipeIn {
+    return Intl.message(
+      'There is no recipe in',
+      name: 'msgNoRecipeIn',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
