@@ -33,11 +33,11 @@ class RecipeRepository {
     return recipes;
   }
 
-  Future<void> createRecipe(Recipe recipe) async {
+  Future<int> createRecipe(Recipe recipe) async {
     return App.db.createRecipe(recipe.toCompanion(false));
   }
 
-  Future<void> addRecipeToFavorite(int recipeId, {bool isFavorite}) async {
+  Future<int> addRecipeToFavorite(int recipeId, {bool isFavorite}) async {
     return App.db.addRecipeToFavorite(recipeId, isFavorite: isFavorite);
   }
 }
