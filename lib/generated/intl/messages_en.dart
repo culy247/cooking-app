@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "export" : MessageLookupByLibrary.simpleMessage("Export"),
     "exportToJson" : MessageLookupByLibrary.simpleMessage("Export to JSON"),
     "favorite" : MessageLookupByLibrary.simpleMessage("Favorite"),
+    "featureUnderDevelopment" : MessageLookupByLibrary.simpleMessage("This feature is under development!"),
     "filter" : MessageLookupByLibrary.simpleMessage("Filter"),
     "fr" : MessageLookupByLibrary.simpleMessage("French"),
     "hello" : MessageLookupByLibrary.simpleMessage("Hello"),
@@ -90,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unSelectAll" : MessageLookupByLibrary.simpleMessage("Unselect all"),
     "unit" : MessageLookupByLibrary.simpleMessage("Unit"),
     "vi" : MessageLookupByLibrary.simpleMessage("Vietnamese"),
+    "warning" : MessageLookupByLibrary.simpleMessage("Warning"),
     "yes" : MessageLookupByLibrary.simpleMessage("YES")
   };
 }

@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "export" : MessageLookupByLibrary.simpleMessage("Export"),
     "exportToJson" : MessageLookupByLibrary.simpleMessage("Xuất ra JSON"),
     "favorite" : MessageLookupByLibrary.simpleMessage("Yêu thích"),
+    "featureUnderDevelopment" : MessageLookupByLibrary.simpleMessage("This feature is under development!"),
     "filter" : MessageLookupByLibrary.simpleMessage("Bộ lọc"),
     "fr" : MessageLookupByLibrary.simpleMessage("Tiếng Pháp"),
     "hello" : MessageLookupByLibrary.simpleMessage("Hello"),
@@ -88,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unSelectAll" : MessageLookupByLibrary.simpleMessage("Bỏ chọn tất cả"),
     "unit" : MessageLookupByLibrary.simpleMessage("Đơn vị"),
     "vi" : MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
+    "warning" : MessageLookupByLibrary.simpleMessage("Warning"),
     "yes" : MessageLookupByLibrary.simpleMessage("CÓ")
   };
 }

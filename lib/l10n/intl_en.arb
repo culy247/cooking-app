@@ -68,5 +68,7 @@
   "shareSubject": "Cookbook in your hand!",
   "en": "English",
   "fr": "French",
-  "vi": "Vietnamese"
+  "vi": "Vietnamese",
+  "warning": "Warning",
+  "featureUnderDevelopment": "This feature is under development!"
 }

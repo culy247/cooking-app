@@ -732,6 +732,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This feature is under development!`
+  String get featureUnderDevelopment {
+    return Intl.message(
+      'This feature is under development!',
+      name: 'featureUnderDevelopment',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

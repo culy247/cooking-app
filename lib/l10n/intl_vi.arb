@@ -66,5 +66,7 @@
   "msgPleaseProvideIngredients": "Vui lòng thêm nguyên liệu!",
   "en": "Tiếng Anh",
   "fr": "Tiếng Pháp",
-  "vi": "Tiếng Việt"
+  "vi": "Tiếng Việt",
+  "warning": "Warning",
+  "featureUnderDevelopment": "This feature is under development!"
 }
