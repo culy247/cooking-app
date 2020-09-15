@@ -1,3 +1,4 @@
+import 'package:cooking/constants/constants.dart';
 import 'package:cooking/generated/l10n.dart';
 import 'package:cooking/navigation/navigation.dart';
 import 'package:cooking/screen/add_screen/add_detail.dart';
@@ -8,6 +9,7 @@ import 'package:cooking/screen/setting_screen/setting_screen.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,30 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: AppColors.selected,
         type: BottomNavigationBarType.fixed,
         items: [
-          buildBottomNavBarItem(
-              S.of(context).recipe,
-              Icons.view_quilt,
-              currentIndex == 0
-                  ? AppColors.selected
-                  : AppColors.colorTextGray),
-          buildBottomNavBarItem(
-              S.of(context).search,
-              Icons.search,
-              currentIndex == 1
-                  ? AppColors.selected
-                  : AppColors.colorTextGray),
-          buildBottomNavBarItem(
-              S.of(context).favorite,
-              Icons.star_border,
-              currentIndex == 2
-                  ? AppColors.selected
-                  : AppColors.colorTextGray),
-          buildBottomNavBarItem(
-              S.of(context).settings,
-              Icons.settings,
-              currentIndex == 3
-                  ? AppColors.selected
-                  : AppColors.colorTextGray),
+          buildBottomNavBarItem(S.of(context).recipe, Icons.view_quilt,
+              currentIndex == 0 ? AppColors.selected : AppColors.colorTextGray),
+          buildBottomNavBarItem(S.of(context).search, Icons.search,
+              currentIndex == 1 ? AppColors.selected : AppColors.colorTextGray),
+          buildBottomNavBarItem(S.of(context).favorite, Icons.star_border,
+              currentIndex == 2 ? AppColors.selected : AppColors.colorTextGray),
+          buildBottomNavBarItem(S.of(context).settings, Icons.settings,
+              currentIndex == 3 ? AppColors.selected : AppColors.colorTextGray),
         ],
         onTap: (index) {
           setState(() {
@@ -69,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: FloatingActionButton(
           backgroundColor: AppColors.selected,
           onPressed: () {
+            FirebaseAnalytics()
+                .logEvent(name: Constants.ANALYTICS_EVENT_CREATE_RECIPE);
             navigateTo(AddDetail());
           },
           child: const Icon(Icons.add),

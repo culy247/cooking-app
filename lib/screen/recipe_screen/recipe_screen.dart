@@ -16,6 +16,7 @@ import 'package:cooking/widget/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get/get.dart' as getx;
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class RecipeScreen extends StatefulWidget {
@@ -142,7 +143,7 @@ class _RecipeScreenState extends State<RecipeScreen> {
 
   Widget buildAppBarIcon(String text, IconData icon, {Function onPressed}) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         onPressed();
       },
       child: Column(
@@ -197,6 +198,10 @@ class _RecipeScreenState extends State<RecipeScreen> {
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
+                    Get.snackbar(S.of(context).warning,
+                        S.of(context).featureUnderDevelopment,
+                      colorText: Colors.white
+                    );
                   },
                   child: Container(
                     padding: EdgeInsets.only(

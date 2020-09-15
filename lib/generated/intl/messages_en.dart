@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "export" : MessageLookupByLibrary.simpleMessage("Export"),
     "exportToJson" : MessageLookupByLibrary.simpleMessage("Export to JSON"),
     "favorite" : MessageLookupByLibrary.simpleMessage("Favorite"),
+    "featureUnderDevelopment" : MessageLookupByLibrary.simpleMessage("This feature is under development!"),
     "filter" : MessageLookupByLibrary.simpleMessage("Filter"),
     "fr" : MessageLookupByLibrary.simpleMessage("French"),
     "hello" : MessageLookupByLibrary.simpleMessage("Hello"),
@@ -49,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ingredientAmount" : MessageLookupByLibrary.simpleMessage("Ingredient amount"),
     "ingredientName" : MessageLookupByLibrary.simpleMessage("Ingredient name"),
     "ingredients" : MessageLookupByLibrary.simpleMessage("Ingredients"),
+    "intro" : MessageLookupByLibrary.simpleMessage("About 10 years ago, recipes could be found in magazines, or on television shows.Then we jot them down by copying them, making general notes, or buying booksabout recipes at the bookstore.With the growth of the internet recently, we can easily search for recipes thatare shared online, or cooking communities willing to share them online.However, with the development of mobile technology, the need to manage sepa-rate recipes anytime, anywhere with personal phones, even without the network,has increased, users always want to store recipes.  and can be found easily.Or you can store the recipe photos, then write down the steps to create a recipefor yourself right on your phone instead of having to write them down in noteslike  before.   When  you  love  the  recipes,  users  need  to  be  able  to  search  therecipes online, and then import them to their phone to easily store them.That’s why the team decided to create an application to manage these recipes,which would be a store for every recipe or the word ”Master-Chief” or ”Jan-Can-Cook” just with a small phone."),
     "invite" : MessageLookupByLibrary.simpleMessage("Invite Friends"),
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
     "logOut" : MessageLookupByLibrary.simpleMessage("Log out"),
@@ -90,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unSelectAll" : MessageLookupByLibrary.simpleMessage("Unselect all"),
     "unit" : MessageLookupByLibrary.simpleMessage("Unit"),
     "vi" : MessageLookupByLibrary.simpleMessage("Vietnamese"),
+    "warning" : MessageLookupByLibrary.simpleMessage("Warning"),
     "yes" : MessageLookupByLibrary.simpleMessage("YES")
   };
 }

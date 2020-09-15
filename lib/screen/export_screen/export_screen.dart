@@ -38,7 +38,7 @@ class _ExportScreenState extends State<ExportScreen> {
           return buildContent();
         },
       ),
-      buildButtonBottom()
+      buildExportToJson()
     ]));
   }
 
@@ -181,22 +181,30 @@ class _ExportScreenState extends State<ExportScreen> {
     );
   }
 
-  Widget buildButtonBottom() {
-    return Container(
-      color: AppColors.primary,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(Dimens.padding['mediumPadding']),
-            child: CookBookText(
-              text: S.of(context).exportToJson,
-              textColor: Colors.white,
-              textSize: Dimens.texts['veryLargeText'],
-              fontWeight: FontWeight.bold,
+  Widget buildExportToJson() {
+    return GestureDetector(
+      onTap: () {
+        Get.snackbar(S.of(context).warning,
+            S.of(context).featureUnderDevelopment,
+            colorText: Colors.white
+        );
+      },
+      child: Container(
+        color: AppColors.primary,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(Dimens.padding['mediumPadding']),
+              child: CookBookText(
+                text: S.of(context).exportToJson,
+                textColor: Colors.white,
+                textSize: Dimens.texts['veryLargeText'],
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

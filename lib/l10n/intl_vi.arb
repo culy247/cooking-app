@@ -66,5 +66,8 @@
   "msgPleaseProvideIngredients": "Vui lòng thêm nguyên liệu!",
   "en": "Tiếng Anh",
   "fr": "Tiếng Pháp",
-  "vi": "Tiếng Việt"
+  "vi": "Tiếng Việt",
+  "warning": "Warning",
+  "featureUnderDevelopment": "This feature is under development!",
+  "intro": "About 10 years ago, recipes could be found in magazines, or on television shows.Then we jot them down by copying them, making general notes, or buying booksabout recipes at the bookstore.With the growth of the internet recently, we can easily search for recipes thatare shared online, or cooking communities willing to share them online.However, with the development of mobile technology, the need to manage sepa-rate recipes anytime, anywhere with personal phones, even without the network,has increased, users always want to store recipes.  and can be found easily.Or you can store the recipe photos, then write down the steps to create a recipefor yourself right on your phone instead of having to write them down in noteslike  before.   When  you  love  the  recipes,  users  need  to  be  able  to  search  therecipes online, and then import them to their phone to easily store them.That’s why the team decided to create an application to manage these recipes,which would be a store for every recipe or the word ”Master-Chief” or ”Jan-Can-Cook” just with a small phone."
 }
