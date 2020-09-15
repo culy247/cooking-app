@@ -28,10 +28,10 @@ Team :
     \end{enumerate}
 
 
-\begin{figure}[h!]
+\begin{figure}
 \centering
-\includegraphics[scale=0.1]{Images/CookingBook.jpg}
-\caption{Cooking Book}
+\includegraphics[scale=0.3]{Images/Unit-Test.jpg}
+\caption{Unit test}
 \label{fig:cookingbook}
 \end{figure}
 
@@ -124,8 +124,9 @@ b6dc892f0d34 \\
 \textbf{Flutter documentation: }  \\
 https://flutter.dev/docs \\
 
- \textbf{LISIBITLY} : we use Analyzer for Dart to analyze code. \\
- \textbf{ROBUSTNESS}  :  \\
+ \textbf{LISIBILTY} : we use Analyzer for Dart to analyze code. \\
+ \textbf{ROBUSTNESS}  :  There're a project support unit test under cooking-app/test location\\
+ 
  \textbf{IMPLEMENTATION CHOICES} : \\  
 
 \subsubsection{Appropriateness}
@@ -180,6 +181,26 @@ https://flutter.dev/docs \\
     \textbf{Acceptance test}: \\
         For project, we design different functions such as: Import, Export, Filter, Recipe, Search, Favorite, and Setting. \\
 
+    -\textbf{Test case Add New Recipe }: \\
+        -Description : Test function when user add new recipe.
+        ++ Step 1 : Open the app  \\
+        ++ Step 2 : Go to Recipe Tab \\
+        ++ Step 3 : Click (+) Button in  \\
+        ++ Step 4 : Fill-in information of new recipe \\
+        ++ Step 5 : Click Save Button \\
+        -Expected result : The list recent recipe should show this new recipe have just created. \\
+        -Actual Result : As expected \\
+        -Pass/Fail : Passed \\
+        -Comment : For this stage, the project will display some icons with food ordered from new users as: Chicken Noodles, Fried Chicken, Pan Pizza, Vietnamese Beef Noodles. We use image from the internet for testing. This project is designed with buttons, layout, and text views background. \\
+        -Result:
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Homepage_interface.jpg}
+        \caption{Result for create new recipe success}
+        \label{fig:cookingbook}
+        \end{figure}
+
+         ------------------------\\ \\ \\
         -\textbf{Test case Add New Recipe }: \\
         -Description : Test function when user add new recipe. \\
         ++ Step 1 : Open the app  \\
@@ -194,8 +215,17 @@ https://flutter.dev/docs \\
         -Result : 
         \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.1]{Images/Homepage_data.jpg}
+        \includegraphics[scale=0.1]{Images/firednod_order.jpg}
+        \includegraphics[scale=0.1]{Images/friechicken_order.jpg}
+        \includegraphics[scale=0.1]{Images/Panpizza_order.jpg}
+        \includegraphics[scale=0.1]{Images/pho_order.jpg}
         \caption{Result for create new recipe success}
+        For this step, a user can add Fired Noodles, Fried Chicken, Pan Pizza, and Vietnamese Beef Noodles. This activity is created to add the recipe include ingredient and direction steps.This stage will help the user can add photo of food and write Recipe name, ,Description, Add Category, Preparation or Cooking.After full filling, the next button will move to Ingredients and Direction when the user selects. 
+        \label{fig:cookingbook}
+        \end{figure}
+        \begin{figure}[h!]
+        \centering
+        Add Recipe as Favorite:When the user access the recipe information, he/she will be able to mark a recipe as favorite.
         \label{fig:cookingbook}
         \end{figure}
         ------------------------\\ \\ \\
@@ -209,12 +239,26 @@ https://flutter.dev/docs \\
         ++ Step 4 : Click Button (edit) a recipe \\
         ++ Step 5 : Fill-in recipe new value \\
         ++ Step 6 : Click Save Button \\
-        -Expected result : Recipe Date must updated into database, as next time we open recipe detais, it must show updated data. \\
+        -Expected result : Recipe Date must updated into database, as next time we open recipe details, it must show updated data. \\
         -Actual Result : As expected \\
         -Pass/Fail : Passed \\
         -Comment : 
         -Result:
-       
+         \begin{figure}[h!]
+        \centering
+        Edit Recipe:this function is able to edit his/her recipe. The user can be edit recipe name,description and so on.
+        Edit Ingredient: this function will help the user is able to edit ingredient from the shopping list if it was done.
+        Edit Direction: the user is able to edit his/her ordering before saving
+        \label{fig:cookingbook}
+        \end{figure}
+        ------------------------\\ \\ \\
+        \begin{figure}[h!]
+        \centering
+        Delete Recipe:this function is able to delete his/her recipe that he/she posted.
+        Delete Ingredient: this function will help the user is able to delete ingredient from the shopping list if it was done.
+        Delete Direction: the user is able to delete his/her ordering before saving
+        \label{fig:cookingbook}
+        \end{figure}
         ------------------------\\ \\ \\
         -\textbf{Test case view recipe detail }: \\
         -Description : Test function when user view a recipe. \\
@@ -227,39 +271,49 @@ https://flutter.dev/docs \\
         -Pass/Fail : Passed \\
         -Comment : 
         -Result:
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/frienod_ingre.jpg}
+        \includegraphics[scale=0.1]{Images/frienod_dire.jpg}
+        \includegraphics[scale=0.1]{Images/friechick_ingre.jpg}
+        \includegraphics[scale=0.1]{Images/firechick_direc.jpg}
+        \includegraphics[scale=0.1]{Images/Panpizza_ingre.jpg}
+        \includegraphics[scale=0.1]{Images/Panpizza_dire.jpg}
+        \includegraphics[scale=0.1]{Images/pho_ingre.jpg}
+        \includegraphics[scale=0.1]{Images/pho_dire.jpg}
+        This function is created to allow the user to allow whatever he/she posts the recipe.This activity is designed to display the recipe that he/she chose with details include the ingredient and direction. The categories include Fired Noodles, Fired Chicken, Pan Pizza, and Vietnamese Beef Food.Besides the user can be able to add drinks. In addition, the user can view the time for Preparation or Cooking. 
+        \caption{Result for create new recipe success}
+        \label{fig:cookingbook}
+        \end{figure}
+             ------------------------\\ \\ \\
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Favorite.jpg}
+        \caption{Result for create new recipe success}
+        For this function, the user can select if he/she fells satisfied with his/her ordering. This function is connecting between Ingredient and Direction. 
+        \label{fig:cookingbook}
+        \end{figure}
+          ------------------------\\ \\ \\
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Search.jpg}
+        \caption{Result for create new recipe success}
+        \label{fig:cookingbook}
+        For this function, the application allows to find information and details. It is including ingredient and direction.Example when the user wants to find Fried Chicken, the search function will help the user t find the Fried Chicken food.
+        \end{figure}
+           ------------------------\\ \\ \\
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Settings.jpg}
+        \caption{Result for create new recipe success}
+        For this function, it will display the layout with some functions like Share, Help, Language, and About.
+        \label{fig:cookingbook}
+        \end{figure}
+          ------------------------\\ \\ \\ 
+
+     
+             ------------------------\\ \\ \\
        
-
-        ------------------------\\ \\ \\
-        -\textbf{Test case Add New Recipe }: \\
-        -Description : Test function when user add new recipe.
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Click (+) Button in  \\
-        ++ Step 4 : Fill-in information of new recipe \\
-        ++ Step 5 : Click Save Button \\
-        -Expected result : The list recent recipe should show this new recipe have just created. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-        
-
-        ------------------------\\ \\ \\
-        -\textbf{Test case Add New Recipe }: \\
-        -Description : Test function when user add new recipe.
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Click (+) Button in  \\
-        ++ Step 4 : Fill-in information of new recipe \\
-        ++ Step 5 : Click Save Button \\
-        -Expected result : The list recent recipe should show this new recipe have just created. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-       
-
-       ------------------------\\ \\ \\
     Whilebox test :   \\
     \textbf{Unit test}: \\
         Built-in test package of Flutter (https://flutter.dev/docs/cookbook/testing/unit/introduction) \\
@@ -293,13 +347,31 @@ https://flutter.dev/docs \\
         \caption{Version 2 for app}
         \label{fig:cookingbook}
         \end{figure}
+        
+        \item \textbf{Phase 3 : 30 Aug 2020} : Final for the rest function and test all function to make sure we can release it. \\
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Favorite.jpg}
+        \caption{Version 2 for app}
+        \label{fig:cookingbook}
+        This function is to connect Recipe and User. A new user can click one or many favorite recipe. A single recipe are able to be viewed as favorite from many users.
+        \end{figure}
+
+        \item \textbf{Phase 3 : 30 Aug 2020} : Final for the rest function and test all function to make sure we can release it. \\
+        \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.1]{Images/Search.jpg}
+        \caption{Version 2 for app}
+        \label{fig:cookingbook}
+        New user can be able to search for recipe to find the food name that they ordered. This function search will help the users are to find the information as well as title as the shortcut way with their target.
+        \end{figure}
 
     \end{enumerate}
 \subsubsection{Rationalized development}
 \begin{enumerate}
 
 \item \textbf{IDE} : Intellij 
-\item \textbf{Version control software}  : git , Git Repository : https://github.com/thphuc/cooking-app  . All member has thier own's branch in local, but all working in dev branch.
+\item \textbf{Version control software}  : git , Git Repository : https://github.com/thphuc/cooking-app  . As each member has his own branch, we can work together to push code into git, and manage it own resource.
 \item \textbf{Builders} : Intellij build-in builder for flutter to build android and ios program.
 \item \textbf{Debuggers} : Flutter DevTools - DevTools is a suite of performance and debugging tools for Dart and Flutter. It’s currently in beta release, but is under active development.\textbf{ What we can do with DevTools } : \\
 -Inspect the UI layout and state of a Flutter app. \\

@@ -1,52 +1,61 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-
 \title{Final Report for Cooking Project}
-\author{sep team }
+\author{Sep team }
 \date{August 2020}
-
 \usepackage{natbib}
 \usepackage{graphicx}
-
 \begin{document}
-
 \maketitle
-
-\section{Introduction}
-About 10 years ago, recipes could be found in magazines, or on television shows.
-Then we jot them down by copying them, making general notes, or buying books about recipes at the bookstore.\\
+\tableofcontents 
+\section{Introduction} 
+\subsection{Preface}
+\qquad About 10 years ago, recipes could be found in magazines, or on television shows.
+Then we jot them down by copying them, making general notes, or buying books about recipes at the bookstore.\\ \\
 With the growth of the internet recently, we can easily search for recipes that are shared online, or cooking communities willing to share them online.\\
 However, with the development of mobile technology, the need to manage separate recipes anytime, anywhere with personal phones, even without the network, has increased, users always want to store recipes. and can be found easily.\\
 Or you can store the recipe photos, then write down the steps to create a recipe for yourself right on your phone instead of having to write them down in notes like before.
 When you love the recipes, users need to be able to search the recipes online, and then import them to their phone to easily store them. \\
-That's why the team decided to create an application to manage these recipes, which would be a store for every recipe or the word "Master-Chief" or "Jan-Can-Cook" just with a small phone. \\ \\ \\ \\
-Team :
+That's why the team decided to create an application to manage these recipes, which would be a store for every recipe or the word "Master-Chief" or "Jan-Can-Cook" just with a small phone. \\ \\ 
+\textbf{Instructors} : Professor Fabien Baldacci. \\ 
+\textbf{Team Member} :
     \begin{enumerate}
         \item \textbf{Tran Huy Phuc} 
         \item \textbf{Nguyen Chi Cong }
         \item \textbf{Pham Hoang Huy}
     \end{enumerate}
-
-
+\newpage
+\subsection{App and download}
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.1]{Images/CookingBook.jpg}
-\caption{Cooking Book}
-\label{fig:cookingbook}
+    \centering
+    \includegraphics[scale=0.066]{Images/flashcreen.jpg}
+    \includegraphics[scale=0.12]{Images/CookingBook.jpg}
+    \includegraphics[scale=0.1]{Images/Home_interface.jpg}
+    \includegraphics[scale=0.1]{Images/frienod_dire.jpg}
+    \includegraphics[scale=0.1]{Images/friechick_ingre.jpg}
+    \includegraphics[scale=0.1]{Images/Settings.jpg}
+    \includegraphics[scale=0.1]{Images/Favorite.jpg}
+    \includegraphics[scale=0.1]{Images/Import_annouce.jpg}
+    \caption{Cooking Book App User Interface}
+    \label{fig:cookingbook}
 \end{figure}
-
+\textbf{Download App and install}  \\
+\begin{enumerate}
+        \item \textbf{apk} for android Devices.
+        \item \textbf{api} for IOS devices.
+\end{enumerate}
+\newpage
 \section{Project Details }
-
+\subsection{Project Requirement}
+\qquad The goal of this project is to have an app on the phone to handle our own recipes. It should be able to replace our handwritten recipe book while using smartphone abilities to add smart features.
 \subsection{EXISTS ANALYSIS}
-
+\qquad Analyze from similar applications and traditional recipe books that people use a lot today for business analysis, then give a comparison table below.
 \begin{itemize}
-\item 1. Recipe book
-\item 2. Recipe website.
-\item 3. Recipe App : My cook book manager
-\item 4. Recipe online app. :Tasty
+\item Recipe book : Recipe books are easy to find at bookstores, like Magnolia Table Joanna Gaines.
+\item Recipe website : Website of recipes, we can search, and get the recipe on this website. ex : https://allrecipes.com.
+\item Recipe App : But the recipe manager app, we can use these apps on our phones, and don't need internet. ex : My cook book manager .
+\item Recipe online app. : Application for management, social network for sharing recipes. ex : Tasty .
 \end{itemize}
-
-
 \begin{center}
  \begin{tabular}{||c c c c c||} 
  \hline
@@ -63,115 +72,143 @@ My own recipe & No & No & Yes & Yes \\
  \hline
  internet & No & Require & no & Require \\ [1ex] 
  \hline
+ Mobile Use & No & Yes, Require Internet & Yes & Yes \\ [1ex] 
+  \hline
+ Favorite & No & no, need account & Yes & Yes \\ [1ex] 
+ \hline
   Import, Export & No & no & yes & no \\ [1ex] 
  \hline
 \end{tabular}
-\caption{Table 1.  Compare kind of existing cook book}
+\caption{Table 1.Compare kind of existing cook book}
 \end{center}
+\newpage
+\subsection{Software Development}
+\subsubsection{ARCHITECTURE}  \\ \\ 
+\textbf{*Overall architecture} \\
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.11]{Images/app-architecture.png}
+    \caption{The overall architecture of the application}
+    \label{fig:cookingbook}
+\end{figure}
 
-\subsection{Software Engineering introduction}
+\textbf{*Components} :
+    \begin{enumerate}
+        \item \textbf{User Interface} : A place to display information to users, and to handle events on the user's side - interactive with smart phone devices, included UI ( Display User Interface), Resource ( Images, json file store, v.v.. ), Localization (Resource file for translation data store in smart devices ) Themes ( Color, Front, Dimensions, Styles , v.v... ). 
+        \item \textbf{Business Logic } : Business logic layer and business layer, to process business information from users, or to interact with the database. Included Repository - business logic process components for recipe and related.
+        \item \textbf{ State Management } 
+    \end{enumerate}
+\newpage
+\subsubsection{IMPLEMENTATION CHOICES} : \\ \\
+\textbf{*Programming language} :\\
+Dart is the programming language we will use.
 
-\subsubsection{Software qualities}
- \textbf{ARCHITECTURE}  \\
- \textbf{Frontend (Mobile app) } \\
-a. \textbf{Framework}: \\
-We only consider cross-platform frameworks: React Native (https://reactnative.dev) or Flutter (https://flutter.dev). The reasons behind this decision are: \\
-o After analizing the requirements (both non-functional and functional requirements), we concluded that the application does not require any specific native function that cross-platform framework can not do.\\
-o We don’t have enough time and resources to build and mantain 2 separate code bases (one for Android and one for iOS).\\
-After we finished our reasearch (visit their official website and documentation, read many articles (listed in references 4a. at the end of this document)), we ended up to choose Flutter for this project, because:\\
-o Flutter has better performance(even better native in a few cases).\\
-o Flutter has better documentation. \\
-o Flutter is being developed and mantained by Google officially, while React native is not supported officially by Facebook anymore. \\
-o Flutter will support web and PC(and probably otherp latforms in the future). \\
-b. \textbf{Programming language} :\\
-o We chose Flutter, so Dart is the programming language we will use. \\
+"Dart is a client-optimized[8] programming language for apps on multiple platforms. It is developed by Google and is used to build mobile, desktop, server, and web applications.[9] \\
+Dart is an object-oriented, class-based, garbage-collected language with C-style syntax.[10] Dart can compile to either native code or JavaScript. It supports interfaces, mixins, abstract classes, reified generics, and type inference.[11]"* \\
+By Wikipedia.\\\\
+Dart is very powerful when combined with Flutter in developing cross-platform mobile applications, and that why team decides to use the combo Dart and Flutter to develop the mobile Application.
+Dart and Flutter has the growth rate is very fast in recent years.
 
-\textbf{Backend} \\
-As user wants to import a list of Recipe or search a Recipe in the internet, we have: 2.1. A Backend API for search recipe (provided by team, and host it In cloud) ( Code by .net core 2.0, and host it in AWS EC2, and it contains 1 SECRET KEY selected by team). All recipe needs to manual insert into database, it can be store by MySQL. 2.2. Use 3rd party API for example: Edamam Nutrition Analysis, or Tasty API. \\
-There are 2 main function from each API: List/Search recipe by a criterion Get details of a recipe \\
-All response data need to be json format but have different fields (depended by API provider). And front-end code needs to convert this format into standard structure data. \\
-A Recipe json result example as below : \\
-\begin{lstlisting}
-{
-"title": "Fresh Ham Roasted With Rye Bread and Dried Fruit Stuffing", "prep": "1. Have your butcher bone and butterfly the ham and score
-the fat in a diamond pattern. ...", "yield": "About 15 servings", "ingr": [
-"1 fresh ham, about 18 pounds, prepared by your butcher (See Step 1)",
-"7 cloves garlic, minced",
-"1 tablespoon caraway seeds, crushed",
-"4 teaspoons salt",
-"Freshly ground pepper to taste",
-"1 teaspoon olive oil",
-"1 medium onion, peeled and chopped",
-"3 cups sourdough rye bread, cut into 1/2-inch cubes",
-"1 1/4 cups coarsely chopped pitted prunes",
-"1 1/4 cups coarsely chopped dried apricots",
-"1 large tart apple, peeled, cored and cut into 1/2-inch cubes", "2 teaspoons chopped fresh rosemary",
-"1 egg, lightly beaten",
-"1 cup chicken broth, homemade or low-sodium canned"
-] 
--}
-\end{lstlisting}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.7]{Images/MobileTrend.png}
+    \caption{Stack Overflow Trends — Comparison of Flutter vs. React Native}
+    \label{fig:cookingbook}
+\end{figure}
+*Source : https://insights.stackoverflow.com/trends?tags=flutter%2Creact-native) \\
+\newpage
+\textbf{*Framework}: \\\\
+\textbf{Front-end (Mobile app) } \\
+\qquad We only consider cross-platform frameworks: React Native (https://reactnative.dev) or Flutter (https://flutter.dev). The reasons behind this decision are:
+ \begin{enumerate}
+        \item After analyzing the requirements (both non-functional and functional requirements), we concluded that the application does not require any specific native function that cross-platform framework can not do.
+        \item We don’t have enough time and resources to build and maintain 2 separate code bases (one for Android and one for iOS)
+\end{enumerate}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{Images/CM_Swift-vs-Flutter_build-time.png}
+    \caption{Flutter vs native application comparison time}
+    \label{fig:cookingbook}
+\end{figure}
+*Source : https://blog.codemagic.io/flutter-vs-swift/ \\\\
 
-\textbf{References}  \\
-\textbf{React native vs. Flutter } \\
-- https://www.thedroidsonroids.com/blog/flutter-vs-react-native-what-to-choose-in-
-2020 \\
-- https://nevercode.io/blog/flutter-vs-react-native-a-developers-perspective/ \\
-- https://medium.com/@adhithiravi/react-native-vs-flutter-what-are-the-differences-
-b6dc892f0d34 \\
-- https://medium.com/@moqod_development/flutter-vs-react-native-for-cross- platform-development-821b44138b4a \\
-- https://medium.com/swlh/flutter-vs-native-vs-react-native-examining-performance- 31338f081980 \\
-\textbf{Flutter documentation: }  \\
-https://flutter.dev/docs \\
 
- \textbf{LISIBITLY} : we use Analyzer for Dart to analyze code. \\
- \textbf{ROBUSTNESS}  :  \\
- \textbf{IMPLEMENTATION CHOICES} : \\  
+After we finished our research (visit their official website and documentation, read many articles (listed in references 4a. at the end of this document)), we ended up to choose Flutter for this project, because:
+\begin{enumerate}
+        \item Flutter has better performance(even better native in a few cases).
+        \item Flutter has better documentation.
+        \item Flutter is being developed and maintained by Google officially, while React native is not supported officially by Facebook anymore.
+        \item Flutter will support web and PC(and probably other platforms in the future). 
+\end{enumerate}
 
-\subsubsection{Appropriateness}
-\textbf{REQUIREMENT ANALYSIS  }\\
+\textbf{References}
+\begin{enumerate}
+\item https://www.thedroidsonroids.com/blog/flutter-vs-react-native-what-to-choose-in-2020 
+\item https://nevercode.io/blog/flutter-vs-react-native-a-developers-perspective/
+\item https://medium.com/@adhithiravi/react-native-vs-flutter-what-are-the-differences-b6dc892f0d34
+\item https://medium.com/@moqod-development/flutter-vs-react-native-for-cross- platform-development-821b44138b4a
+\item https://medium.com/swlh/flutter-vs-native-vs-react-native-examining-performance- 31338f081980
+\item \textbf{Flutter documentation: }  https://flutter.dev/docs
+\end{enumerate}
 
-\textbf{ Usecase diagram}
-
+ \subsubsection{LISIBITLY} : in cooking app, we included : 
+ \begin{enumerate}
+ \item : Analyzer for Dart to check rule of code, or comment, v.v...
+ \item : Dartdoc : To generate document of Dart programming language code.
+ \end{enumerate}
+ 
+ \subsubsection{ROBUSTNESS}  :  in cooking app, we included : 
+ \begin{enumerate}
+ \item Unit-test : Unit test for repository - business layer of recipe and recipe categories, when every time we have new code, we can re-run the whole unit code to make sure the system still working fine with Mock data.
+ \item Log : We use fire-base to log error/exception .
+ \end{enumerate}
+ \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.07]{Images/unit-test-repo.png}
+    \caption{Unit-test of repository (all passed)}
+    \label{fig:cookingbook}
+\end{figure}
+\newpage
+\subsubsection{REQUIREMENT ANALYSIS  }\\\\
+\textbf{ *Use-case diagram}\\
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.5]{Images/Usecase.jpg}
-\caption{Usecase - diagram}
+\caption{Use-case diagram}
 \label{fig:Usecase}
 \end{figure}
-
-\textbf{ Mock-up}
-
+\newpage
+\textbf{*Mock-up}
 \begin{figure}[h!]
 \centerin
-\includegraphics[scale=0.11]{Images/Mockup.jpg}
-\caption{Mockup}
+\includegraphics[scale=0.21]{Images/Mockup.jpg}
+\caption{Mock-up UI and flow of app}
 \label{fig:Mockup}
 \end{figure}
-
-    For \textbf{ Functional Requirement} :   \\
+\newpage
+    \textbf{* Functional Requirement} : 
     \begin{enumerate}
-        \item  Recipe list:User can view their recipe list on homepage. Each item on the list shows recipe basic information (name, image, short description). \\
-        \item Sort recipes: user can sort their recipes in different orders(Ex:name, created date), default order is name. 
-        \item Create new recipe: user has the ability to create new recipe from the app.
-        \item View recipe details: user can click on any recipe on the recipe list to view its details.
-        \item Edit recipe: user is able to edit existing recipe and save updated details to database.
-        \item Delete recipe: user can delete an existing recipe. A popup dialog should be shown to user to confirm the deletion. After deleted, the recipe will be removed our of local database and disappears on recipe list.
-        \item  Duplicate recipe: user can use this function to clone an existing recipe to new one quickly.
-        \item Import recipes: user is able to use the app to import one or more recipes from the file that was exported before. User can import recipes from the internet too.
-        \item Export recipes: from the app, user can export one or more recipes to a file. This file can be shared to other users or re-imported to the app later.
-        \item Search recipe(s): user can search recipe(s) from local database or remote database.
-        \item Category list: user can view list of categories. Click on a category to view all the recipes belong to that category.
-        \item Create new category: from the app, user can create new category (with name and description).
-        \item Edit category: user is able to edit the information of category.
-        \item Delete category: user is able to delete existing categories. A popup dialog should be shown to user to confirm the deletion. After deleted, the deleted category will no longer be shown in category list.
-        \item Favorite recipes: user can add any recipe to favorite list, so that user can find these recipes faster.
-        \item Remove recipes out of favorite list: user is able to remove recipes out of the favorite list. A popup dialog should be shown to user to confirm the removal.
-        \item Push notification: user can receive notifications (if they allow)
-        \item Resume Application: When they're an action with higher priority ( like phone call ), the application should pause, and resume all progress when the action is finished.
+        \item \textbf{Recipe list }:User can view their recipe list on homepage. Each item on the list shows recipe basic information (name, image, short description).
+        \item \textbf{Sort recipes }: user can sort their recipes in different orders(Ex:name, created date), default order is name. 
+        \item \textbf{Create new recipe} : user has the ability to create new recipe from the app.
+        \item \textbf{View recipe details} : user can click on any recipe on the recipe list to view its details.
+        \item \textbf{Edit recipe}: user is able to edit existing recipe and save updated details to database.
+        \item \textbf{Delete recipe}: user can delete an existing recipe. A popup dialog should be shown to user to confirm the deletion. After deleted, the recipe will be removed our of local database and disappears on recipe list.
+        \item \textbf{Duplicate recipe}: user can use this function to clone an existing recipe to new one quickly.
+        \item \textbf{Import recipes}: user is able to use the app to import one or more recipes from the file that was exported before. User can import recipes from the internet too.
+        \item \textbf{Export recipes}: from the app, user can export one or more recipes to a file. This file can be shared to other users or re-imported to the app later.
+        \item \textbf{Search recipe(s)}: user can search recipe(s) from local database or remote database.
+        \item \textbf{Category list}: user can view list of categories. Click on a category to view all the recipes belong to that category.
+        \item \textbf{Create new category}: from the app, user can create new category (with name and description).
+        \item \textbf{Edit category}: user is able to edit the information of category.
+        \item \textbf{Delete category}: user is able to delete existing categories. A popup dialog should be shown to user to confirm the deletion. After deleted, the deleted category will no longer be shown in category list.
+        \item \textbf{Favorite recipes}: user can add any recipe to favorite list, so that user can find these recipes faster.
+        \item \textbf{Remove recipes out of favorite list}: user is able to remove recipes out of the favorite list. A popup dialog should be shown to user to confirm the removal.
+        \item \textbf{Push notification}: user can receive notifications (if they allow)
+        \item \textbf{Resume Application}: When they're an action with higher priority ( like phone call ), the application should pause, and resume all progress when the action is finished.
     \end{enumerate}
-
-    For \textbf{ Non-Functional Requirement} :   \\
+\\ \\ \\ \\ \\
+    \textbf{* Non-Functional Requirement} : 
     \begin{enumerate}
         \item \textbf{Performance/Storage} : Storage of application if acceptance ( < 100Mb )
         \item \textbf{Performance/Response} : All local response action must < 1s.
@@ -191,35 +228,12 @@ https://flutter.dev/docs \\
         \item \textbf{Localized} : The app supports English but also has the ability to support other languages easily. 
         \item \textbf{Version control ability} : All code and documents store with control version on GitHub, that we can manage the version of all code/documents 
     \end{enumerate}
-
-\textbf{Set of tests} \\
-
-Blackbox test :   \\
+\newpage
+\subsubsection{BLACK BOX TEST} \\
 \textbf{Acceptance test}: \\
     For project, we design different functions such as: Import, Export, Filter, Recipe, Search, Favorite, and Setting. \\
 
--\textbf{Test case Add New Recipe }: \\
-    -Description : Test function when user add new recipe.
-    ++ Step 1 : Open the app  \\
-    ++ Step 2 : Go to Recipe Tab \\
-    ++ Step 3 : Click (+) Button in  \\
-    ++ Step 4 : Fill-in information of new recipe \\
-    ++ Step 5 : Click Save Button \\
-    -Expected result : The list recent recipe should show this new recipe have just created. \\
-    -Actual Result : As expected \\
-    -Pass/Fail : Passed \\
-    -Comment : 
-    -Result:
-    \begin{figure}[h!]
-    \centering
-    \includegraphics[scale=0.1]{Images/Homepage_interface.jpg}
-    \caption{Result for create new recipe success}
-    \label{fig:cookingbook}
-    For this stage, the project will display some icons with food ordered from new users as: Chicken Noodles, Fried Chicken, Pan Pizza, Vietnamese Beef Noodles. We use image from the internet for testing. This project is designed with buttons, layout, and text views background.
-    \end{figure}
-
-     ------------------------\\ \\ \\
-    -\textbf{Test case Add New Recipe }: \\
+   -\textbf{Test case Add New Recipe }: \\
     -Description : Test function when user add new recipe. \\
     ++ Step 1 : Open the app  \\
     ++ Step 2 : Go to Recipe Tab \\
@@ -241,50 +255,40 @@ Blackbox test :   \\
     For this step, a user can add Fired Noodles, Fried Chicken, Pan Pizza, and Vietnamese Beef Noodles. This activity is created to add the recipe include ingredient and direction steps.This stage will help the user can add photo of food and write Recipe name, ,Description, Add Category, Preparation or Cooking.After full filling, the next button will move to Ingredients and Direction when the user selects. 
     \label{fig:cookingbook}
     \end{figure}
-    \begin{figure}[h!]
-    \centering
-    Add Recipe as Favorite:When the user access the recipe information, he/she will be able to mark a recipe as favorite.
-    \label{fig:cookingbook}
-    \end{figure}
-    ------------------------\\ \\ \\
-
-    -\textbf{Edit a Recipe }: \\
-    -Description : Test function when user edit a recipe. \\
-    -Pre requirement : There're at least 1 recipe, if not, need to create a recipe before edit it. \\
+    \newpage 
+    
+    
+     -\textbf{Test case search recipe }: \\
+    -Description : Test function when user search a recipe . \\
     ++ Step 1 : Open the app  \\
-    ++ Step 2 : Go to Recipe Tab \\
-    ++ Step 3 : Select a recipe  \\
-    ++ Step 4 : Click Button (edit) a recipe \\
-    ++ Step 5 : Fill-in recipe new value \\
-    ++ Step 6 : Click Save Button \\
-    -Expected result : Recipe Date must updated into database, as next time we open recipe details, it must show updated data. \\
+    ++ Step 2 : Go to Search tab \\
+    ++ Step 3 : Fill keyword into search box  \\
+    ++ Step 4 : Click search button  \\
+    -Expected result : The list recipe should show correct with keyword filled-in . \\
     -Actual Result : As expected \\
     -Pass/Fail : Passed \\
-    -Comment : 
-    -Result:
-     \begin{figure}[h!]
-    \centering
-    Edit Recipe:this function is able to edit his/her recipe. The user can be edit recipe name,description and so on.
-    Edit Ingredient: this function will help the user is able to edit ingredient from the shopping list if it was done.
-    Edit Direction: the user is able to edit his/her ordering before saving
-    \label{fig:cookingbook}
-    \end{figure}
-    ------------------------\\ \\ \\
+    -Comment :  \\
+    -Result : 
     \begin{figure}[h!]
     \centering
-    Delete Recipe:this function is able to delete his/her recipe that he/she posted.
-    Delete Ingredient: this function will help the user is able to delete ingredient from the shopping list if it was done.
-    Delete Direction: the user is able to delete his/her ordering before saving
+    \includegraphics[scale=0.1]{Images/search1.jpg}
+    
+    \caption{Result for search 'beef' keyword}
+    
     \label{fig:cookingbook}
     \end{figure}
-    ------------------------\\ \\ \\
-    -\textbf{Test case view recipe detail }: \\
+    \newpage 
+    
+ -\textbf{Test case add category for recipe }: \\
     -Description : Test function when user view a recipe. \\
     ++ Step 1 : Open the app  \\
     ++ Step 2 : Go to Recipe Tab \\
-    ++ Step 3 : Select a recipe to view detail  \\
-    ++ Step 4 : Recipe must show recipe information include content of : Summary Ingredients, Direction, Picture of this recipe\\
-    -Expected result : Detail recipe must same information with selected item in listing included Picture, Name and Description. When we edit a recipe, and re-gôto recipe detail, recipe detail must have updated data. \\
+    ++ Step 3 : Click (+) Button in  \\
+    ++ Step 4 : Fill-in information of new recipe \\
+    ++ Step 5 : Click add categories Button  \\
+    ++ Step 6 : Select Category  \\
+    ++ Step 7 : Click Save Button \\
+    -Expected result : Category must show as same as when user create recipe. \\
     -Actual Result : As expected \\
     -Pass/Fail : Passed \\
     -Comment : 
@@ -299,88 +303,141 @@ Blackbox test :   \\
     \includegraphics[scale=0.1]{Images/Panpizza_dire.jpg}
     \includegraphics[scale=0.1]{Images/pho_ingre.jpg}
     \includegraphics[scale=0.1]{Images/pho_dire.jpg}
-    This function is created to allow the user to allow whatever he/she posts the recipe.This activity is designed to display the recipe that he/she chose with details include the ingredient and direction. The categories include Fired Noodles, Fired Chicken, Pan Pizza, and Vietnamese Beef Food.Besides the user can be able to add drinks. In addition, the user can view the time for Preparation or Cooking. 
+    The categories include Fired Noodles, Fired Chicken, Pan Pizza, and Vietnamese Beef Food.Besides the user can be able to add drinks. In addition, the user can view the time for Preparation or Cooking. 
     \caption{Result for create new recipe success}
     \label{fig:cookingbook}
     \end{figure}
-         ------------------------\\ \\ \\
+\newpage 
+-\textbf{Test case add recipe to favorite }: \\
+    -Description : Test function when user add a recipe to their list of favorite . \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Select a recipe to view detail   \\
+    ++ Step 4 : Click star Button in the top of right corner to add an item to favorite list\\
+    ++ Step 5 : Go back into main screen  \\
+    ++ Step 6 :  Go to tab Favorite  \\
+    ++ Step 7 : Check if favorite recipe just added into the list \\
+    -Expected result : When added into favorite list, and open the tab Favorite, it should appear the icon just added. . \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment : 
+    -Result:
     \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.1]{Images/Favorite.jpg}
-    \caption{Result for create new recipe success}
-    For this function, the user can select if he/she fells satisfied with his/her ordering. This function is connecting between Ingredient and Direction. 
+    \includegraphics[scale=0.1]{Images/AddToFavorite.jpg}
+    \includegraphics[scale=0.1]{Images/FavoriteList.jpg}
+    \caption{test for add to favorite}
     \label{fig:cookingbook}
     \end{figure}
-      ------------------------\\ \\ \\
+\newpage 
+ -\textbf{Test case remove recipe to favorite }: \\
+    -Description : Test function when user remove a recipe to their list of favorite . \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Select a recipe to view detail   \\
+    ++ Step 4 : Un-check star Button in the top of right corner to add an item to favorite list\\
+    ++ Step 5 : Go back into main screen  \\
+    ++ Step 6 :  Go to tab Favorite  \\
+    ++ Step 7 : Check if favorite recipe just remove into the list \\
+    -Expected result : When remove a recipe into favorite list, and open the tab Favorite, it should not appear the recipe in favorite list. If the list empty, it should show message as this favorite list is empty.
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment : 
+    -Result:
     \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.1]{Images/Search.jpg}
-    \caption{Result for create new recipe success}
+    \includegraphics[scale=0.1]{Images/Favorite-unchecked.jpg}
+    \includegraphics[scale=0.1]{Images/Favorite-emptylist.jpg}
+    \caption{test for remove to favorite}
     \label{fig:cookingbook}
-    For this function, the application allows to find information and details. It is including ingredient and direction.Example when the user wants to find Fried Chicken, the search function will help the user t find the Fried Chicken food.
     \end{figure}
-       ------------------------\\ \\ \\
+\newpage 
+    -\textbf{Test go-to setting screens }: \\
+    -Description : Test function when user goto setting screen. \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Settings tab \\
+    -Expected result : It should show setting pages include 4 buttons : Share, Help, Language, About button. \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment :  \\
+    -Result : 
     \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.1]{Images/Settings.jpg}
-    \caption{Result for create new recipe success}
+    \includegraphics[scale=0.20]{Images/Settings.jpg}
+    \caption{Result for go-to setting tabs}
     For this function, it will display the layout with some functions like Share, Help, Language, and About.
     \label{fig:cookingbook}
     \end{figure}
-      ------------------------\\ \\ \\ 
-       ------------------------\\ \\ \\
-    Whilebox test :   \\
-    \textbf{Unit test}: \\
+ \newpage
+\subsubsection{ WHITE BOX TEST} 
+\textbf{Unit test}: \\
         Built-in test package of Flutter (https://flutter.dev/docs/cookbook/testing/unit/introduction) \\
         “Mock”: use mockito (https://flutter.dev/docs/cookbook/testing/unit/mocking) \\
         CI (continuous integration): Github action \\
         When we merge code from any branch to “master” branch, pre-define script on Github action will be triggerred to run all the tests. If the tests are passed, it continues to build .apk file and stores it on Github (we probably send this apk to Slack channel if we need).
-        State management in Flutter: We use mobX (https://mobx.netlify.com) because of its simplicity.\\
-    
+        State management in Flutter: We use mobX (https://mobx.netlify.com) because of its simplicity.\\ \\
+    Two main business logic repository need to test is :  \\
+    \textbf{Unit test for recipe repository}: 
+    \begin{enumerate}
+        \item Test create recipe \textbf{(Passed)}
+        \item Test get recipes \textbf{(Passed)}
+        \item Test get recipe by category id \textbf{(Passed)}
+        \item Test get favorite recipes \textbf{(Passed)}
+        \item Test search recipes \textbf{(Passed)}
+        \item Test add recipe to favorite \textbf{(Passed)}
+    \end{enumerate} 
+    \newline
+\textbf{Unit test for categories repository}: 
+      \begin{enumerate}
+        \item Test create category \textbf{(Passed)}
+        \item Test update category \textbf{(Passed)}
+        \item Test get categories \textbf{(Passed)}
+    \end{enumerate} 
+    \newpage
+    Unit test for categories : 
     \begin{figure}[h!]
             \centering
-            \includegraphics[scale=0.3]{Images/image.png}
-            \caption{Unit test for recipe }
-            \label{fig:cookingbook}
-            \end{figure}
-            
-            \begin{figure}[h!]
-            \centering
-            \includegraphics[scale=0.3]{Images/image (1).png}
+            \includegraphics[scale=0.13]{Images/unit-test-for-recipe.png}
             \caption{Unit test for categories}
             \label{fig:cookingbook}
-            \end{figure}
-            \textbf{Experiments, some tests, some first release} 
+    \end{figure}
+Unit test for recipe
+    \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.13]{Images/unit-test-repo.png}
+            \caption{Unit test for recipe }
+            \label{fig:cookingbook}
+    \end{figure}
+\newpage
+    \subsubsection{EXPERIMENTS, SOME TESTS, SOME FIRST RELEASE} 
     For plan of development of team include 3 phases :   
     \begin{enumerate}
         \item \textbf{Phase 1 : 30 Jun 2020} : Initialize application with flutter code. As we need verify that team can work with new framework and technology, that we need try to new an empty app, and prepare all enviroments and tools for next step. On end of Jun, we have an empty app. \\
         \begin{figure}[h!]
             \centering
-            \includegraphics[scale=0.1]{Images/flashcreen.jpg}
+            \includegraphics[scale=0.17]{Images/flashcreen.jpg}
             \caption{Version 0.1 for app - Just display fashscreen}
             \label{fig:cookingbook}
             \end{figure}
-        
         \item \textbf{Phase 2 : 30 Jul 2020} : Initialize main function and architecture, so we need a plan on end of Jul 2020, all main architecture need to be implemented, all main screen need to initialize, ( home page, search recipe page, edit/add new recipe ). After that time, we have an application install file that can install in android with that install file all function are working, but test may not cover all function.\\
         \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.1]{Images/CookingBook.jpg}
+        \includegraphics[scale=0.33]{Images/CookingBook.jpg}
         \caption{Version 1 for app}
         \label{fig:cookingbook}
         \end{figure}
 
-        \item \textbf{Phase 3 : 30 Aug 2020} : Final for the rest function and test all function to make sure we can release it. \\
+        \item \textbf{Phase 3 : 30 Aug 2020} : Final for the rest function and test all function to make sure we can release it. On this phase, all Unit test need passed.
         \begin{figure}[h!]
         \centering
-        \includegraphics[scale=0.1]{Images/Homepage_data.jpg}
+        \includegraphics[scale=0.17]{Images/Homepage_data.jpg}
         \caption{Version 2 for app}
         \label{fig:cookingbook}
         \end{figure}
-
     \end{enumerate}
-\subsubsection{Rationalized development}
+\newpage 
+\subsubsection{RATIONALIZED DEVELOPMENTt}
 \begin{enumerate}
-
 \item \textbf{IDE} : Intellij 
 \item \textbf{Version control software}  : git , Git Repository : https://github.com/thphuc/cooking-app  . All member has thier own's branch in local, but all working in dev branch.
 \item \textbf{Builders} : Intellij build-in builder for flutter to build android and ios program.
