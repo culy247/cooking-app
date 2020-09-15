@@ -1,4 +1,11 @@
 \documentclass{article}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
 \usepackage[utf8]{inputenc}
 \title{Final Report for Cooking Project}
 \author{Sep team }
@@ -41,9 +48,15 @@ That's why the team decided to create an application to manage these recipes, wh
 \end{figure}
 \textbf{Download App and install}  \\
 \begin{enumerate}
-        \item \textbf{apk} for android Devices.
+        \item \textbf{apk} for android Devices. under location /final/Cookbook.apk \href{/final/Cookbook.apk}{file} .
         \item \textbf{api} for IOS devices.
 \end{enumerate}
+\subsection{Application Demo}
+Youtube Videos : \href{https://youtu.be/vgawyQmJWpk}{Application Demo}
+\subsection{Source and github repository }
+Github : \href{https://github.com/thphuc/cooking-app }{Git Url}
+
+
 \newpage
 \section{Project Details }
 \subsection{Project Requirement}
@@ -52,7 +65,7 @@ That's why the team decided to create an application to manage these recipes, wh
 \qquad Analyze from similar applications and traditional recipe books that people use a lot today for business analysis, then give a comparison table below.
 \begin{itemize}
 \item Recipe book : Recipe books are easy to find at bookstores, like Magnolia Table Joanna Gaines.
-\item Recipe website : Website of recipes, we can search, and get the recipe on this website. ex : https://allrecipes.com.
+\item Recipe website : Website of recipes, we can search, and get the recipe on this website. ex : \href{https://allrecipes.com}{All Recipes}.
 \item Recipe App : But the recipe manager app, we can use these apps on our phones, and don't need internet. ex : My cook book manager .
 \item Recipe online app. : Application for management, social network for sharing recipes. ex : Tasty .
 \end{itemize}
@@ -60,7 +73,7 @@ That's why the team decided to create an application to manage these recipes, wh
  \begin{tabular}{||c c c c c||} 
  \hline
   & Recipe Book & Recipe Website & Recipe App & Recipe Online App \\ [0.5ex] 
-  & (Magnolia Table) & (allrecipes.com) & (My cook book manager) & (Tasty) \\ [0.5ex] 
+  & (Magnolia Table) & (\href{https://allrecipes.com}{All Recipes}) & (My cook book manager) & (Tasty) \\ [0.5ex] 
  \hline\hline
 My own recipe & No & No & Yes & Yes \\ 
  \hline
@@ -104,8 +117,8 @@ My own recipe & No & No & Yes & Yes \\
 Dart is the programming language we will use.
 
 "Dart is a client-optimized[8] programming language for apps on multiple platforms. It is developed by Google and is used to build mobile, desktop, server, and web applications.[9] \\
-Dart is an object-oriented, class-based, garbage-collected language with C-style syntax.[10] Dart can compile to either native code or JavaScript. It supports interfaces, mixins, abstract classes, reified generics, and type inference.[11]"* \\
-By Wikipedia.\\\\
+Dart is an object-oriented, class-based, garbage-collected language with C-style syntax.[10] Dart can compile to either native code or JavaScript. It supports interfaces, mixing, abstract classes, refiled generics, and type inference.[11]"* \\
+\href{https://en.wikipedia.org/wiki/Dart_(programming_language)}{By Wikipedia.}\\\\
 Dart is very powerful when combined with Flutter in developing cross-platform mobile applications, and that why team decides to use the combo Dart and Flutter to develop the mobile Application.
 Dart and Flutter has the growth rate is very fast in recent years.
 
@@ -115,11 +128,10 @@ Dart and Flutter has the growth rate is very fast in recent years.
     \caption{Stack Overflow Trends — Comparison of Flutter vs. React Native}
     \label{fig:cookingbook}
 \end{figure}
-*Source : https://insights.stackoverflow.com/trends?tags=flutter%2Creact-native) \\
-\newpage
+*Source : \href{https://insights.stackoverflow.com/trends?tags=flutter,react-native}{Stackoverflow Insight} \\
 \textbf{*Framework}: \\\\
 \textbf{Front-end (Mobile app) } \\
-\qquad We only consider cross-platform frameworks: React Native (https://reactnative.dev) or Flutter (https://flutter.dev). The reasons behind this decision are:
+\qquad We only consider cross-platform frameworks: \href{https://reactnative.dev}{ React Native} or  \href{https://flutter.dev}{Flutter}. The reasons behind this decision are:
  \begin{enumerate}
         \item After analyzing the requirements (both non-functional and functional requirements), we concluded that the application does not require any specific native function that cross-platform framework can not do.
         \item We don’t have enough time and resources to build and maintain 2 separate code bases (one for Android and one for iOS)
@@ -130,7 +142,7 @@ Dart and Flutter has the growth rate is very fast in recent years.
     \caption{Flutter vs native application comparison time}
     \label{fig:cookingbook}
 \end{figure}
-*Source : https://blog.codemagic.io/flutter-vs-swift/ \\\\
+*Source : \href{https://blog.codemagic.io/flutter-vs-swift/}{Codemagic} \\\\
 
 
 After we finished our research (visit their official website and documentation, read many articles (listed in references 4a. at the end of this document)), we ended up to choose Flutter for this project, because:
@@ -154,9 +166,29 @@ After we finished our research (visit their official website and documentation, 
  \subsubsection{LISIBITLY} : in cooking app, we included : 
  \begin{enumerate}
  \item : Analyzer for Dart to check rule of code, or comment, v.v...
- \item : Dartdoc : To generate document of Dart programming language code.
+ \item : Dartdoc : To generate document of Dart programming language code. Docs api at location : /final/source_code/doc/api/* \href{/final/source_code/doc/api/}{Location }
  \end{enumerate}
- 
+ \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.25]{Images/generatedoc.png}
+    \caption{Generate Document}
+    \label{fig:cookingbook}
+\end{figure}
+
+ \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.30]{Images/docapi.png}
+    \caption{After generate, it should document api}
+    \label{fig:cookingbook}
+\end{figure}
+
+ \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.6]{Images/doc_location.png}
+    \caption{Doc Location Under /final/source_code/doc/api/*}
+    \label{fig:cookingbook}
+\end{figure}
+
  \subsubsection{ROBUSTNESS}  :  in cooking app, we included : 
  \begin{enumerate}
  \item Unit-test : Unit test for repository - business layer of recipe and recipe categories, when every time we have new code, we can re-run the whole unit code to make sure the system still working fine with Mock data.
@@ -164,10 +196,24 @@ After we finished our research (visit their official website and documentation, 
  \end{enumerate}
  \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.07]{Images/unit-test-repo.png}
+    \includegraphics[scale=0.2]{Images/unit-test-repo.png}
     \caption{Unit-test of repository (all passed)}
     \label{fig:cookingbook}
 \end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.2]{Images/firebaselog.png}
+    \caption{Fire-base for logging}
+    \label{fig:cookingbook}
+\end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.45]{Images/firebaselog-setup1.png}
+    \includegraphics[scale=0.45]{Images/firebaselog-setup2.png}
+    \caption{Setup Fire-base}
+    \label{fig:cookingbook}
+\end{figure}
+
 \newpage
 \subsubsection{REQUIREMENT ANALYSIS  }\\\\
 \textbf{ *Use-case diagram}\\
@@ -271,7 +317,7 @@ After we finished our research (visit their official website and documentation, 
     -Result : 
     \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.1]{Images/search1.jpg}
+    \includegraphics[scale=0.15]{Images/search1.jpg}
     
     \caption{Result for search 'beef' keyword}
     
@@ -369,12 +415,12 @@ After we finished our research (visit their official website and documentation, 
     \label{fig:cookingbook}
     \end{figure}
  \newpage
-\subsubsection{ WHITE BOX TEST} 
+\subsubsection{WHITE BOX TEST} 
 \textbf{Unit test}: \\
         Built-in test package of Flutter (https://flutter.dev/docs/cookbook/testing/unit/introduction) \\
         “Mock”: use mockito (https://flutter.dev/docs/cookbook/testing/unit/mocking) \\
         CI (continuous integration): Github action \\
-        When we merge code from any branch to “master” branch, pre-define script on Github action will be triggerred to run all the tests. If the tests are passed, it continues to build .apk file and stores it on Github (we probably send this apk to Slack channel if we need).
+        When we merge code from any branch to “master” branch, pre-define script on Github action will be triggered to run all the tests. If the tests are passed, it continues to build .apk file and stores it on Github (we probably send this apk to Slack channel if we need).
         State management in Flutter: We use mobX (https://mobx.netlify.com) because of its simplicity.\\ \\
     Two main business logic repository need to test is :  \\
     \textbf{Unit test for recipe repository}: 
@@ -436,10 +482,10 @@ Unit test for recipe
         \end{figure}
     \end{enumerate}
 \newpage 
-\subsubsection{RATIONALIZED DEVELOPMENTt}
+\subsubsection{RATIONALIZED DEVELOPMENT}
 \begin{enumerate}
 \item \textbf{IDE} : Intellij 
-\item \textbf{Version control software}  : git , Git Repository : https://github.com/thphuc/cooking-app  . All member has thier own's branch in local, but all working in dev branch.
+\item \textbf{Version control software}  : git , Git Repository : https://github.com/thphuc/cooking-app  . All member has their owns branch in local, but all working in dev branch.
 \item \textbf{Builders} : Intellij build-in builder for flutter to build android and ios program.
 \item \textbf{Debuggers} : Flutter DevTools - DevTools is a suite of performance and debugging tools for Dart and Flutter. It’s currently in beta release, but is under active development.\textbf{ What we can do with DevTools } : \\
 -Inspect the UI layout and state of a Flutter app. \\
@@ -462,15 +508,16 @@ On this project, we most focus on Unit Test only. It's supported from Flutter fr
 
 \subsection{Scientific approach } 
 \subsubsection{justify facts and choices (references, alternatives, tests, experiments)}
-All the report included explain the solution, and refreence .
+All the report included explain the solution, and reference .
 \subsubsection{being rigorous during verification of the work done (tests, experiments)}
 All function include Unit Test to make sure the program working well.
 \subsubsection{knowing context and domain of application (bibliography, existing analysis)}
-Please refer Requirement Analysys for more Details.
+Please refer Requirement Analysis for more Details.
 \subsubsection{write a documentation and confrontation of ideas}
 Included in the report.
 
 \section{Conclusion }
-
-\section{appendix }
+\qquad After developing a software product, the team realized that it not only involves writing software, but in that, in order to ensure the product quality, it takes a lot of work, and the team's support, from source code management, to writing documentation, or writing unit-tests to secure software products.
+After the process, everyone on the team gained more experience in the process of producing a big software product.
+\section{Appendix }
 \end{document}
