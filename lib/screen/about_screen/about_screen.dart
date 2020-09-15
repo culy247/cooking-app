@@ -1,4 +1,5 @@
 import 'package:cooking/generated/l10n.dart';
+import 'package:cooking/theme/colors.dart';
 import 'package:cooking/widget/custom_button/back_button.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,32 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          CookbookBackButton(
-            onPressed: () {
-              Get.back();
-            },
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CookbookBackButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                ),
+                const CookBookText(
+                  text: 'Cookbook',
+                  textColor: Colors.black,
+                  textSize: 30,
+                )
+              ],
+            ),
           ),
-          CookBookText(text: S.of(context).intro)
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: CookBookText(
+              text: S.of(context).intro,
+              textColor: AppColors.primary,
+              textSize: 16,
+            ),
+          )
         ],
       ),
     );

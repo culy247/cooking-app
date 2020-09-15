@@ -160,7 +160,7 @@ class _SettingState extends State<Setting> {
   Widget buildLanguages() {
     final List<String> languages = [
       S.of(context).en,
-      S.of(context).fr,
+      //S.of(context).fr,
       S.of(context).vi
     ];
     return RadioGroup<String>.builder(
