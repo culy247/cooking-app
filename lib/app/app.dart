@@ -7,6 +7,8 @@ import 'package:cooking/store/filter_screen_store/filter_screen_store.dart';
 import 'package:cooking/store/recipe/recipe_store.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/fonts.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,6 +25,8 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  FirebaseAnalytics analytics = FirebaseAnalytics();
+
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
@@ -47,29 +51,33 @@ class _AppState extends State<App> {
         Provider<RecipeStore>.value(value: RecipeStore())
       ],
       child: GetMaterialApp(
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          locale: Get.locale,
-          color: AppColors.primary,
-          theme: ThemeData(
-              primaryColor: AppColors.primary,
-              fontFamily: Fonts.quicksand,
-              cupertinoOverrideTheme: const CupertinoThemeData(
-                  textTheme: CupertinoTextThemeData(
-                      dateTimePickerTextStyle: TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.w300))),
-              primaryTextTheme: const TextTheme(
-                headline6:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-              primaryIconTheme: const IconThemeData(color: Colors.white)),
-          debugShowCheckedModeBanner: false,
-          home: SplashScreen()),
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        locale: Get.locale,
+        color: AppColors.primary,
+        theme: ThemeData(
+            primaryColor: AppColors.primary,
+            fontFamily: Fonts.quicksand,
+            cupertinoOverrideTheme: const CupertinoThemeData(
+                textTheme: CupertinoTextThemeData(
+                    dateTimePickerTextStyle:
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.w300))),
+            primaryTextTheme: const TextTheme(
+              headline6:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            ),
+            primaryIconTheme: const IconThemeData(color: Colors.white)),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: analytics),
+        ],
+      ),
     );
   }
 }

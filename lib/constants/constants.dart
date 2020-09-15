@@ -26,4 +26,7 @@ class Constants {
   static const List<String> LANGUAGES = [
     'English', 'French', 'Vietnamese'
   ];
+
+  static const String ANALYTICS_EVENT_CREATE_RECIPE = 'create_recipe';
+  static const String ANALYTICS_SHARE = 'share';
 }

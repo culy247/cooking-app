@@ -7,6 +7,7 @@ import 'package:cooking/utils/email_launcher.dart';
 import 'package:cooking/utils/ui_utils.dart';
 import 'package:cooking/widget/clipper/app_bar_clipper.dart';
 import 'package:cooking/widget/custom_text_app/cook_book_text.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -121,6 +122,8 @@ class _SettingState extends State<Setting> {
               icon: const Icon(Icons.share),
               text: S.of(context).share,
               onPressed: () {
+                FirebaseAnalytics()
+                    .logEvent(name: Constants.ANALYTICS_SHARE);
                 Share.share(S.of(context).msgShare,
                     subject: S.of(context).shareSubject);
               }),
