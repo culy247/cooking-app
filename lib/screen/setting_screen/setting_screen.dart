@@ -1,5 +1,7 @@
 import 'package:cooking/constants/constants.dart';
 import 'package:cooking/generated/l10n.dart';
+import 'package:cooking/navigation/navigation.dart';
+import 'package:cooking/screen/about_screen/about_screen.dart';
 import 'package:cooking/theme/colors.dart';
 import 'package:cooking/theme/dimens.dart';
 import 'package:cooking/theme/images.dart';
@@ -122,8 +124,7 @@ class _SettingState extends State<Setting> {
               icon: const Icon(Icons.share),
               text: S.of(context).share,
               onPressed: () {
-                FirebaseAnalytics()
-                    .logEvent(name: Constants.ANALYTICS_SHARE);
+                FirebaseAnalytics().logEvent(name: Constants.ANALYTICS_SHARE);
                 Share.share(S.of(context).msgShare,
                     subject: S.of(context).shareSubject);
               }),
@@ -134,7 +135,9 @@ class _SettingState extends State<Setting> {
                 width: 24.0,
               ),
               text: S.of(context).about,
-              onPressed: () {}),
+              onPressed: () {
+                navigateTo(AboutScreen());
+              }),
           buildItems(
               icon: const Icon(Icons.help),
               text: S.of(context).help,
