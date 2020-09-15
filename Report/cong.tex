@@ -194,89 +194,140 @@ https://flutter.dev/docs \\
 
 \textbf{Set of tests} \\
 
-    Blackbox test :   \\
-    \textbf{Acceptance test}: \\
-        For project, we design different functions such as: Import, Export, Filter, Recipe, Search, Favorite, and Setting. \\
+Blackbox test :   \\
+\textbf{Acceptance test}: \\
+    For project, we design different functions such as: Import, Export, Filter, Recipe, Search, Favorite, and Setting. \\
 
-        -\textbf{Test case Add New Recipe }: \\
-        -Description : Test function when user add new recipe. \\
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Click (+) Button in  \\
-        ++ Step 4 : Fill-in information of new recipe \\
-        ++ Step 5 : Click Save Button \\
-        -Expected result : The list recent recipe should show this new recipe have just created. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment :  \\
-        -Result : 
-        \begin{figure}[h!]
-        \centering
-        \includegraphics[scale=0.1]{Images/Homepage_data.jpg}
-        \caption{Result for create new recipe success}
-        \label{fig:cookingbook}
-        \end{figure}
-        ------------------------\\ \\ \\
+-\textbf{Test case Add New Recipe }: \\
+    -Description : Test function when user add new recipe.
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Click (+) Button in  \\
+    ++ Step 4 : Fill-in information of new recipe \\
+    ++ Step 5 : Click Save Button \\
+    -Expected result : The list recent recipe should show this new recipe have just created. \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment : 
+    -Result:
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/Homepage_interface.jpg}
+    \caption{Result for create new recipe success}
+    \label{fig:cookingbook}
+    For this stage, the project will display some icons with food ordered from new users as: Chicken Noodles, Fried Chicken, Pan Pizza, Vietnamese Beef Noodles. We use image from the internet for testing. This project is designed with buttons, layout, and text views background.
+    \end{figure}
 
-        -\textbf{Edit a Recipe }: \\
-        -Description : Test function when user edit a recipe. \\
-        -Pre requirement : There're at least 1 recipe, if not, need to create a recipe before edit it. \\
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Select a recipe  \\
-        ++ Step 4 : Click Button (edit) a recipe \\
-        ++ Step 5 : Fill-in recipe new value \\
-        ++ Step 6 : Click Save Button \\
-        -Expected result : Recipe Date must updated into database, as next time we open recipe detais, it must show updated data. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-       
-        ------------------------\\ \\ \\
-        -\textbf{Test case view recipe detail }: \\
-        -Description : Test function when user view a recipe. \\
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Select a recipe to view detail  \\
-        ++ Step 4 : Recipe must show recipe information include content of : Summary Ingredients, Direction, Picture of this recipe\\
-        -Expected result : Detail recipe must same information with selected item in listing included Picture, Name and Description. When we edit a recipe, and re-gôto recipe detail, recipe detail must have updated data. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-       
+     ------------------------\\ \\ \\
+    -\textbf{Test case Add New Recipe }: \\
+    -Description : Test function when user add new recipe. \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Click (+) Button in  \\
+    ++ Step 4 : Fill-in information of new recipe \\
+    ++ Step 5 : Click Save Button \\
+    -Expected result : The list recent recipe should show this new recipe have just created. \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment :  \\
+    -Result : 
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/firednod_order.jpg}
+    \includegraphics[scale=0.1]{Images/friechicken_order.jpg}
+    \includegraphics[scale=0.1]{Images/Panpizza_order.jpg}
+    \includegraphics[scale=0.1]{Images/pho_order.jpg}
+    \caption{Result for create new recipe success}
+    For this step, a user can add Fired Noodles, Fried Chicken, Pan Pizza, and Vietnamese Beef Noodles. This activity is created to add the recipe include ingredient and direction steps.This stage will help the user can add photo of food and write Recipe name, ,Description, Add Category, Preparation or Cooking.After full filling, the next button will move to Ingredients and Direction when the user selects. 
+    \label{fig:cookingbook}
+    \end{figure}
+    \begin{figure}[h!]
+    \centering
+    Add Recipe as Favorite:When the user access the recipe information, he/she will be able to mark a recipe as favorite.
+    \label{fig:cookingbook}
+    \end{figure}
+    ------------------------\\ \\ \\
 
-        ------------------------\\ \\ \\
-        -\textbf{Test case Add New Recipe }: \\
-        -Description : Test function when user add new recipe.
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Click (+) Button in  \\
-        ++ Step 4 : Fill-in information of new recipe \\
-        ++ Step 5 : Click Save Button \\
-        -Expected result : The list recent recipe should show this new recipe have just created. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-        
-
-        ------------------------\\ \\ \\
-        -\textbf{Test case Add New Recipe }: \\
-        -Description : Test function when user add new recipe.
-        ++ Step 1 : Open the app  \\
-        ++ Step 2 : Go to Recipe Tab \\
-        ++ Step 3 : Click (+) Button in  \\
-        ++ Step 4 : Fill-in information of new recipe \\
-        ++ Step 5 : Click Save Button \\
-        -Expected result : The list recent recipe should show this new recipe have just created. \\
-        -Actual Result : As expected \\
-        -Pass/Fail : Passed \\
-        -Comment : 
-        -Result:
-       
-
+    -\textbf{Edit a Recipe }: \\
+    -Description : Test function when user edit a recipe. \\
+    -Pre requirement : There're at least 1 recipe, if not, need to create a recipe before edit it. \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Select a recipe  \\
+    ++ Step 4 : Click Button (edit) a recipe \\
+    ++ Step 5 : Fill-in recipe new value \\
+    ++ Step 6 : Click Save Button \\
+    -Expected result : Recipe Date must updated into database, as next time we open recipe details, it must show updated data. \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment : 
+    -Result:
+     \begin{figure}[h!]
+    \centering
+    Edit Recipe:this function is able to edit his/her recipe. The user can be edit recipe name,description and so on.
+    Edit Ingredient: this function will help the user is able to edit ingredient from the shopping list if it was done.
+    Edit Direction: the user is able to edit his/her ordering before saving
+    \label{fig:cookingbook}
+    \end{figure}
+    ------------------------\\ \\ \\
+    \begin{figure}[h!]
+    \centering
+    Delete Recipe:this function is able to delete his/her recipe that he/she posted.
+    Delete Ingredient: this function will help the user is able to delete ingredient from the shopping list if it was done.
+    Delete Direction: the user is able to delete his/her ordering before saving
+    \label{fig:cookingbook}
+    \end{figure}
+    ------------------------\\ \\ \\
+    -\textbf{Test case view recipe detail }: \\
+    -Description : Test function when user view a recipe. \\
+    ++ Step 1 : Open the app  \\
+    ++ Step 2 : Go to Recipe Tab \\
+    ++ Step 3 : Select a recipe to view detail  \\
+    ++ Step 4 : Recipe must show recipe information include content of : Summary Ingredients, Direction, Picture of this recipe\\
+    -Expected result : Detail recipe must same information with selected item in listing included Picture, Name and Description. When we edit a recipe, and re-gôto recipe detail, recipe detail must have updated data. \\
+    -Actual Result : As expected \\
+    -Pass/Fail : Passed \\
+    -Comment : 
+    -Result:
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/frienod_ingre.jpg}
+    \includegraphics[scale=0.1]{Images/frienod_dire.jpg}
+    \includegraphics[scale=0.1]{Images/friechick_ingre.jpg}
+    \includegraphics[scale=0.1]{Images/firechick_direc.jpg}
+    \includegraphics[scale=0.1]{Images/Panpizza_ingre.jpg}
+    \includegraphics[scale=0.1]{Images/Panpizza_dire.jpg}
+    \includegraphics[scale=0.1]{Images/pho_ingre.jpg}
+    \includegraphics[scale=0.1]{Images/pho_dire.jpg}
+    This function is created to allow the user to allow whatever he/she posts the recipe.This activity is designed to display the recipe that he/she chose with details include the ingredient and direction. The categories include Fired Noodles, Fired Chicken, Pan Pizza, and Vietnamese Beef Food.Besides the user can be able to add drinks. In addition, the user can view the time for Preparation or Cooking. 
+    \caption{Result for create new recipe success}
+    \label{fig:cookingbook}
+    \end{figure}
+         ------------------------\\ \\ \\
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/Favorite.jpg}
+    \caption{Result for create new recipe success}
+    For this function, the user can select if he/she fells satisfied with his/her ordering. This function is connecting between Ingredient and Direction. 
+    \label{fig:cookingbook}
+    \end{figure}
+      ------------------------\\ \\ \\
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/Search.jpg}
+    \caption{Result for create new recipe success}
+    \label{fig:cookingbook}
+    For this function, the application allows to find information and details. It is including ingredient and direction.Example when the user wants to find Fried Chicken, the search function will help the user t find the Fried Chicken food.
+    \end{figure}
+       ------------------------\\ \\ \\
+    \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.1]{Images/Settings.jpg}
+    \caption{Result for create new recipe success}
+    For this function, it will display the layout with some functions like Share, Help, Language, and About.
+    \label{fig:cookingbook}
+    \end{figure}
+      ------------------------\\ \\ \\ 
        ------------------------\\ \\ \\
     Whilebox test :   \\
     \textbf{Unit test}: \\
@@ -285,7 +336,21 @@ https://flutter.dev/docs \\
         CI (continuous integration): Github action \\
         When we merge code from any branch to “master” branch, pre-define script on Github action will be triggerred to run all the tests. If the tests are passed, it continues to build .apk file and stores it on Github (we probably send this apk to Slack channel if we need).
         State management in Flutter: We use mobX (https://mobx.netlify.com) because of its simplicity.\\
-\textbf{Experiments, some tests, some first release} 
+    
+    \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.3]{Images/image.png}
+            \caption{Unit test for recipe }
+            \label{fig:cookingbook}
+            \end{figure}
+            
+            \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=0.3]{Images/image (1).png}
+            \caption{Unit test for categories}
+            \label{fig:cookingbook}
+            \end{figure}
+            \textbf{Experiments, some tests, some first release} 
     For plan of development of team include 3 phases :   
     \begin{enumerate}
         \item \textbf{Phase 1 : 30 Jun 2020} : Initialize application with flutter code. As we need verify that team can work with new framework and technology, that we need try to new an empty app, and prepare all enviroments and tools for next step. On end of Jun, we have an empty app. \\
