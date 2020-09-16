@@ -17,7 +17,7 @@ class Constants {
     Category(id: 4, name: 'Chicken', description: 'Chicken'),
     Category(id: 5, name: 'Vegetarian', description: 'Vegetarian'),
     Category(id: 6, name: 'Desserts', description: 'Desserts'),
-    Category(id: 6, name: 'Salads', description: 'Salads')
+    Category(id: 7, name: 'Salads', description: 'Salads')
   ];
 
   static const String AND_SEPARATOR = '&&&';
